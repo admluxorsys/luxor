@@ -24,10 +24,13 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@irys/sdk": "^0.2.11",
+    "@metaplex-foundation/mpl-token-metadata": "^2.13.0",
     "@metaplex-foundation/umi": "^1.4.1",
     "@metaplex-foundation/umi-bundle-defaults": "^1.4.1",
     "@metaplex-foundation/umi-signer-wallet-adapters": "^1.4.1",
+    "bs58": "^6.0.0",
+    "jimp": "^1.6.0",
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.6.0"
   }

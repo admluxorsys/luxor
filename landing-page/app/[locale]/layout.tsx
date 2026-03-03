@@ -2,17 +2,26 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '../../i18n/routing';
-import { WalletContextProvider } from '../../components/providers/WalletContextProvider';
+
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
+import { WalletContextProvider } from '../../components/providers/WalletContextProvider';
 import '../globals.css';
-import { Inter } from 'next/font/google';
+import { Montserrat, Outfit } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+});
 
 export const metadata = {
-  title: 'Excelsior Ecosystem | RWA on Solana',
-  description: 'Decentralized finance backed by Real World Assets.',
+  title: 'Luxor Economy',
+  description: 'Building the future of LATAM and US integration on the blockchain.',
 };
 
 export default async function LocaleLayout({
@@ -35,16 +44,16 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="dark">
-      <body className={`${inter.className} bg-black text-white min-h-screen flex flex-col`}>
-        <NextIntlClientProvider messages={messages}>
-          <WalletContextProvider>
+      <body className={`${montserrat.variable} ${outfit.variable} ${montserrat.className} bg-black text-white min-h-screen flex flex-col font-sans`}>
+        <WalletContextProvider>
+          <NextIntlClientProvider messages={messages}>
             <Navbar />
             <main className="flex-grow pt-16">
               {children}
             </main>
             <Footer />
-          </WalletContextProvider>
-        </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </WalletContextProvider>
       </body>
     </html>
   );

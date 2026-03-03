@@ -2,32 +2,35 @@
 
 import { motion } from 'framer-motion';
 import { Flag, Rocket, Zap, Globe, Users } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function RoadmapPage() {
+    const t = useTranslations('RoadmapPage');
+
     const steps = [
         {
-            phase: "Phase 1: Foundation",
-            title: "Mainnet Launch",
+            phase: t('p1_phase'),
+            title: t('p1_title'),
             icon: <Rocket className="text-purple-400" size={24} />,
-            items: ["Smart Contract Deployment (Devnet Tested)", "Website Launch V1", "Community Setup (Telegram/X)", "Initial 54 Wallet Distribution"]
+            items: t.raw('p1_items')
         },
         {
-            phase: "Phase 2: Awareness",
-            title: "Marketing & Hype",
+            phase: t('p2_phase'),
+            title: t('p2_title'),
             icon: <Users className="text-pink-400" size={24} />,
-            items: ["Influencer Partnerships", "Meme Contests", "Raydium Liquidity Injection", "Listing on DexScreener"]
+            items: t.raw('p2_items')
         },
         {
-            phase: "Phase 3: Utility",
-            title: "The Valve Opens",
+            phase: t('p3_phase'),
+            title: t('p3_title'),
             icon: <Zap className="text-yellow-400" size={24} />,
-            items: ["First Property Acquisition", "Burn Mechanism Activation (1% Fee)", "Treasury Dashboard Live", "Holder Airdrops"]
+            items: t.raw('p3_items')
         },
         {
-            phase: "Phase 4: Expansion",
-            title: "Ecosystem Growth",
+            phase: t('p4_phase'),
+            title: t('p4_title'),
             icon: <Globe className="text-blue-400" size={24} />,
-            items: ["Legal Entity Formation (GENIUS Act)", "CEX Listings", "Partnership with Real Estate Firms", "Cross-chain Bridges"]
+            items: t.raw('p4_items')
         }
     ];
 
@@ -35,8 +38,8 @@ export default function RoadmapPage() {
         <div className="min-h-screen bg-black pt-12 pb-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h1 className="text-5xl font-bold text-white mb-6">Roadmap</h1>
-                    <p className="text-gray-400">Our journey to bridge Memes and Real Assets.</p>
+                    <h1 className="text-5xl font-bold text-white mb-6 uppercase tracking-tighter">{t('title')}</h1>
+                    <p className="text-gray-400 font-medium tracking-tight">{t('subtitle')}</p>
                 </div>
 
                 <div className="space-y-12 relative">
@@ -56,15 +59,15 @@ export default function RoadmapPage() {
                             <div className="absolute left-8 -ml-3 md:left-1/2 md:-ml-3 w-6 h-6 rounded-full bg-black border-2 border-purple-500 z-10" />
 
                             <div className="flex-1 ml-16 md:ml-0 md:px-8">
-                                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-colors">
+                                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-colors group">
                                     <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? '' : 'md:justify-end'}`}>
                                         {step.icon}
                                         <span className="text-sm font-bold text-purple-400 uppercase tracking-wider">{step.phase}</span>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">{step.title}</h3>
                                     <ul className={`space-y-2 text-gray-400 ${index % 2 === 0 ? '' : 'md:flex md:flex-col md:items-end'}`}>
-                                        {step.items.map((item, i) => (
-                                            <li key={i} className="flex items-center gap-2">
+                                        {(step.items as string[]).map((item, i) => (
+                                            <li key={i} className="flex items-center gap-2 text-sm">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-gray-500" /> {item}
                                             </li>
                                         ))}

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/routing';
+import { useRef, useEffect, useState } from 'react';
 
 interface HeroProps {
     eyebrow: string;
@@ -13,50 +14,104 @@ interface HeroProps {
 }
 
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
+    const videoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/Final.mp4?alt=media&token=7abba781-5d82-4c0f-8dac-d39125d2e67e";
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const handleEnded = () => {
+            setIsPaused(true);
+            // When video ends, wait 10 seconds then restart
+            setTimeout(() => {
+                if (video) {
+                    setIsPaused(false);
+                    video.currentTime = 0;
+                    video.play();
+                }
+            }, 10000); // 10 seconds delay
+        };
+
+        video.addEventListener('ended', handleEnded);
+        return () => video.removeEventListener('ended', handleEnded);
+    }, []);
+
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 px-4 md:px-[5cm]">
-            {/* Background Overlay */}
-            <div className="absolute inset-0 hero-overlay pointer-events-none z-0" />
+        <section className="relative min-h-[105vh] w-full flex items-end justify-start overflow-hidden bg-black pb-44 px-6 md:px-16 lg:px-24">
+            {/* 1. Video Layer - Pinned to Top */}
+            <div className="absolute top-0 left-0 w-full h-[75vh] z-0 overflow-hidden">
+                <video
+                    ref={videoRef}
+                    autoPlay
+                    muted
+                    playsInline
+                    className={`w-full h-full object-cover ${isPaused
+                        ? 'transition-transform duration-[10000ms] ease-out scale-105'
+                        : 'scale-100'
+                        }`}
+                    src={videoUrl}
+                />
+                {/* Subtle fade transiton to black */}
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
+            </div>
 
-            {/* Background Glows */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[128px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[128px] pointer-events-none" />
-
-            <div className="relative z-10 text-center max-w-6xl mx-auto">
+            {/* 2. Content Layer - Positioned to overlap video and black background */}
+            <div className="relative z-10 w-full max-w-5xl">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="flex flex-col items-start text-left"
                 >
-                    {/* Eyebrow */}
-                    <span className="text-lg md:text-xl font-medium uppercase tracking-[0.2em] text-white/80 mb-6 font-sans">
+                    {/* Eyebrow - Even smaller */}
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] text-blue-400 mb-3 font-sans"
+                    >
                         {eyebrow}
-                    </span>
+                    </motion.span>
 
-                    {/* Title */}
-                    <h1 className="text-4xl md:text-7xl font-medium text-white mb-8 tracking-tighter leading-[1.05] font-sans">
+                    {/* Main Title - Scaled down for elegance */}
+                    <h1 className="text-2xl md:text-4xl lg:text-[42px] font-medium text-white mb-5 tracking-tight leading-[1.1] font-sans whitespace-pre-line">
                         {title}
                     </h1>
 
-                    {/* Subtitle */}
-                    <p className="text-lg md:text-xl text-white/60 mb-12 max-w-3xl mx-auto tracking-tight font-medium font-sans">
+                    {/* Subtitle - More compact */}
+                    <p className="text-xs md:text-sm lg:text-[15px] text-white/80 mb-8 max-w-lg leading-relaxed font-sans font-light">
                         {subtitle}
                     </p>
 
-                    {/* Primary Button */}
-                    <Link
-                        href={ctaLink}
-                        className="group relative px-10 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-medium text-lg transition-all shadow-lg shadow-primary/20 flex items-center gap-3 active:scale-95"
-                    >
-                        {ctaText}
-                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    {/* CTA Section - Smaller buttons */}
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <Link
+                            href={ctaLink}
+                            className="group relative px-7 py-2.5 bg-white text-black hover:bg-blue-600 hover:text-white rounded-full font-bold text-[12px] transition-all duration-300 flex items-center gap-2 overflow-hidden"
+                        >
+                            <span className="relative z-10">{ctaText}</span>
+                            <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                            <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                        </Link>
 
-                        {/* Glow Effect */}
-                        <div className="absolute inset-0 rounded-full bg-primary-glow/20 blur-md -z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
+                        <button className="px-7 py-2.5 border border-white/20 hover:border-white/40 text-white rounded-full font-bold text-[12px] transition-all backdrop-blur-sm">
+                            Explorar Ecosistema
+                        </button>
+                    </div>
                 </motion.div>
             </div>
+
+            {/* Subtle bottom scroll indicator moved to the side or kept central but minimal */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2 }}
+                className="absolute bottom-10 right-10 z-30 hidden lg:block"
+            >
+                <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-white/50 to-transparent animate-pulse" />
+            </motion.div>
         </section>
     );
 };

@@ -1,0 +1,53 @@
+{
+    "HomePage": {
+        "title": "Welcome to the\nLuxor Economy.",
+        "subtitle": "**Luxor (LXR)** drives the Excelsior ecosystem as its public liquidity engine. Designed for utility, stability, and growth directly on Solana.",
+        "cta_main": "Enter the Vault",
+        "cta_secondary": "Read the Whitepaper",
+        "features": {
+            "reserve": {
+                "title": "Real World Backing",
+                "description": "Luxor represents liquidity in a vast ecosystem secured by real-world assets and transparent on-chain governance."
+            },
+            "liquidity": {
+                "title": "Liquidity Engine",
+                "description": "With a supply of 2.025B, LXR facilitates seamless, high-volume transactions across the entire ecosystem."
+            },
+            "speed": {
+                "title": "Solana Speed & Security",
+                "description": "Leveraging Solana's Token-2022 program for enforceable royalties, secure transfers, and sub-second finality."
+            }
+        },
+        "allocation": {
+            "title": "Transparent Allocation",
+            "description": "Our distribution model ensures long-term sustainability. The vast majority of tokens are held in the secure Squads Multisig Vault to support market stability.",
+            "charts": {
+                "luxor_title": "Luxor (LXR) Distribution",
+                "founder": "Founder Allocation",
+                "founder_sub": "Vested over 4 years",
+                "operations": "Operations Fund",
+                "operations_sub": "Marketing and development",
+                "holding": "Ecosystem Holding",
+                "holding_sub": "Rewards and partnerships",
+                "reserve": "Central Reserve",
+                "reserve_sub": "Liquidity backing"
+            }
+        }
+    },
+    "Navbar": {
+        "home": "Home",
+        "luxor": "Luxor",
+        "roadmap": "Roadmap",
+        "team": "Team",
+        "community": "Community",
+        "ecosystem": "Ecosystem",
+        "docs": "Docs",
+        "audit": "Audit",
+        "tokenomics": "Tokenomics",
+        "buy": "BUY LXR",
+        "chart": "Chart"
+    },
+    "Common": {
+        "connectWallet": "Connect Wallet"
+    }
+}

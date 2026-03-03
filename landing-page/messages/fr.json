@@ -1,0 +1,191 @@
+{
+    "HomePage": {
+        "title": "Bienvenue dans\nl'économie Luxor.",
+        "subtitle": "**Luxor (LXR)** propulse l'écosystème Excelsior en tant que moteur de liquidité public. Conçu pour l'utilité, la stabilité et la croissance directement sur Solana.",
+        "cta_main": "Entrer dans la Bourse",
+        "cta_secondary": "Lire le Livre Blanc",
+        "features": {
+            "reserve": {
+                "title": "Soutien du Monde Réel",
+                "description": "Luxor représente la liquidité dans un vaste écosystème sécurisé par des actifs du monde réel et une gouvernance transparente sur la chaîne."
+            },
+            "liquidity": {
+                "title": "Moteur de Liquidité",
+                "description": "Avec une offre de 2,025 Milliards, LXR facilite des transactions fluides et à haut volume dans tout l'écosystème."
+            },
+            "speed": {
+                "title": "Vitesse et Sécurité Solana",
+                "description": "Exploitation du programme Token-2022 de Solana pour des redevances exécutoires, des transferts sécurisés et une finalité en moins d'une seconde."
+            }
+        },
+        "allocation": {
+            "title": "Allocation Transparente",
+            "description": "Notre modèle de distribution assure une durabilité à long terme. La grande majorité des jetons sont conservés dans le coffre-fort Multisig sécurisé de Squads pour soutenir la stabilité du marché.",
+            "charts": {
+                "luxor_title": "Distribution de Luxor (LXR)",
+                "founder": "Allocation des Fondateurs",
+                "founder_sub": "Acquis sur 4 ans",
+                "operations": "Fonds d'Opérations",
+                "operations_sub": "Marketing et développement",
+                "holding": "Détention de l'Écosystème",
+                "holding_sub": "Récompenses et partenariats",
+                "reserve": "Réserve Centrale",
+                "reserve_sub": "Soutien de liquidité",
+                "personal": "Personnel / Flotte",
+                "personal_sub": "Liquidité directe"
+            }
+        },
+        "eyebrow": "ÉCOSYSTÈME SUR SOLANA"
+    },
+    "LuxorPage": {
+        "header_eyebrow": "PROPULSÉ PAR SOLANA",
+        "title": "LUXOR $LXR",
+        "subtitle": "Le moteur de liquidité de l'écosystème. Conçu pour l'utilité, la stabilité et la croissance directement sur Solana.",
+        "inferno_title": "Mécanisme Inferno",
+        "inferno_desc": "Conçu pour récompenser les détenteurs. Des frais de 1% sont appliqués à chaque transaction (Achat/Vente/Transfert). Ces frais sont automatiquement collectés pour renforcer la trésorerie de l'écosystème.",
+        "buy_raydium": "Acheter sur Raydium",
+        "view_chart": "Voir le Graphique",
+        "total_burnt": "Total Brûlé",
+        "circulating_supply": "Offre Circulante",
+        "token_distribution": "Distribution des Jetons",
+        "dist_public": "Public / Coffre-fort",
+        "dist_holding": "Détention / Privé",
+        "dist_ops": "Opérations",
+        "dist_creator": "Créateur (Acquisition)"
+    },
+    "TeamPage": {
+        "title": "Transparence & Équipe",
+        "subtitle": "Bâti sur la confiance, vérifié par le code. Nous priorisons la sécurité et la conformité légale.",
+        "legal_title": "Conformité Légale",
+        "legal_genius": "GENIUS Act 2026 : Entièrement conforme aux nouvelles réglementations sur les stablecoins et les actifs numériques.",
+        "legal_utility": "Jeton d'Utilité : $LXR est conçu comme un jeton d'utilité pour la gouvernance de l'écosystème et les récompenses. Ce n'est PAS un titre financier.",
+        "legal_disclaimer": "Avertissement : Les crypto-actifs sont volatils. Investissez de manière responsable. Aucune garantie de profit.",
+        "audit_title": "Audits & Contrats",
+        "view_solscan": "Voir sur Solscan",
+        "view_reserves": "Voir les Réserves",
+        "track_burns": "Suivre les Brûlages",
+        "contributors_title": "Contributeurs Principaux",
+        "founder": "Joseph (Fondateur)",
+        "lead_role": "Développeur Principal & Stratégie",
+        "ops_lead": "Responsable des Opérations",
+        "ops_role": "Marketing & Partenariats",
+        "comm_manager": "Gestionnaire de Communauté",
+        "comm_role": "Réseaux Sociaux & Support"
+    },
+    "RoadmapPage": {
+        "title": "Feuille de Route",
+        "subtitle": "Notre voyage pour relier les Memes et les Actifs Réels.",
+        "p1_phase": "Phase 1 : Fondations",
+        "p1_title": "Lancement du Mainnet",
+        "p1_items": [
+            "Déploiement du Contrat Intelligent (Testé sur Devnet)",
+            "Lancement du Site Web V1",
+            "Mise en place de la Communauté (Telegram/X)",
+            "Distribution Initiale des 54 Portefeuilles"
+        ],
+        "p2_phase": "Phase 2 : Sensibilisation",
+        "p2_title": "Marketing & Hype",
+        "p2_items": [
+            "Partenariats avec Influenceurs",
+            "Concours de Memes",
+            "Injection de Liquidité sur Raydium",
+            "Cotation sur DexScreener"
+        ],
+        "p3_phase": "Phase 3 : Utilité",
+        "p3_title": "La Vanne s'Ouvre",
+        "p3_items": [
+            "Première Acquisition de Propriété",
+            "Activation du Mécanisme de Brûlage (Frais de 1%)",
+            "Tableau de Bord de la Trésorerie en Direct",
+            "Airdrops pour les Détenteurs"
+        ],
+        "p4_phase": "Phase 4 : Expansion",
+        "p4_title": "Croissance de l'Écosystème",
+        "p4_items": [
+            "Formation de l'Entité Légale (GENIUS Act)",
+            "Cotations sur CEX",
+            "Partenariat avec des Entreprises Immobilières",
+            "Ponts Cross-chain"
+        ]
+    },
+    "Navbar": {
+        "home": "Accueil",
+        "luxor": "Luxor",
+        "roadmap": "Feuille de route",
+        "team": "Équipe",
+        "community": "Communauté",
+        "ecosystem": "Écosystème",
+        "docs": "Documentation",
+        "audit": "Audit",
+        "tokenomics": "Tokenomics",
+        "buy": "Acheter",
+        "chart": "Graphique",
+        "utility": "Utilité",
+        "project": "Projet",
+        "business": "Affaires",
+        "security": "Sécurité",
+        "onchain": "On-Chain",
+        "mega": {
+            "eco_title_1": "Nos Partenaires",
+            "eco_desc_1": "Entreprises soutenant Luxor",
+            "eco_title_2": "Cas d'Utilisation",
+            "eco_desc_2": "Utilité réelle",
+            "eco_title_3": "Carte d'Adoption",
+            "eco_desc_3": "Présence mondiale du projet",
+            "eco_title_4": "Presse & Médias",
+            "eco_desc_4": "Kit de marque et nouvelles",
+            "tok_title_1": "Distribution",
+            "tok_desc_1": "Allocation de l'offre",
+            "tok_title_2": "Audit",
+            "tok_desc_2": "Certificats de sécurité",
+            "tok_title_3": "Liquidité",
+            "tok_desc_3": "Preuve de fonds verrouillés",
+            "tok_title_4": "Contrat",
+            "tok_desc_4": "Copier l'adresse LXR",
+            "util_title_1": "Staking",
+            "util_desc_1": "Gagner des récompenses LXR",
+            "util_title_2": "Gouvernance",
+            "util_desc_2": "Voter dans la DAO",
+            "util_title_3": "Explorateur",
+            "util_desc_3": "Voir sur Solscan"
+        },
+        "view_more": "Voir Plus de Détails",
+        "coming_soon": "Luxor vous montrera bientôt que vous faites aussi partie du futur"
+    },
+    "Common": {
+        "connectWallet": "Connecter le Portefeuille",
+        "luxor_economy": "Économie Luxor",
+        "dev_tag": "Écosystème en Développement",
+        "ca_copied": "Adresse du contrat copiée!"
+    },
+    "Footer": {
+        "followUs": "Suivez-nous",
+        "slogan_1": "Rendre LUXOR",
+        "slogan_2": "utile pour",
+        "slogan_3": "tous",
+        "about": "À propos de Luxor",
+        "privacy": "Confidentialité",
+        "terms": "Conditions",
+        "copyright": "Construit sur Solana.",
+        "col_biz_title": "Affaires",
+        "col_biz_desc": "Acceptez LUXOR dans votre entreprise.",
+        "col_tech_title": "Données Techniques",
+        "col_tech_desc": "Informations sur le contrat Solana.",
+        "col_sec_title": "Sécurité",
+        "col_sec_desc": "Engagement envers la transparence.",
+        "col_project_title": "Projet",
+        "col_project_desc": "Découvrez notre vision.",
+        "col_onchain_title": "Liens On-Chain",
+        "col_onchain_desc": "Surveillez Luxor en temps réel.",
+        "link_holders": "Détenteurs (Orb)",
+        "link_integra": "Intégrer Luxor Pay",
+        "link_verified": "Contrat Vérifié",
+        "link_jupiter": "Jupiter (Échange)",
+        "link_certificates": "Certificats",
+        "accepted_in": "Accepté dans l'écosystème",
+        "newsletter_title": "Newsletter",
+        "newsletter_desc": "Actualités sur l'économie Luxor.",
+        "newsletter_placeholder": "Votre adresse e-mail",
+        "newsletter_cta": "S'abonner"
+    }
+}

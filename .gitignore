@@ -44,6 +44,8 @@ secrets/
 !tsconfig.json
 !next.config.json
 !Anchor.toml
+!landing-page/messages/*.json
+!admin-dashboard/messages/*.json
 
 # Exclusion for specific folders that might contain json we WANT to keep
 # But since wallets/ are keys, we should BE CAREFUL.

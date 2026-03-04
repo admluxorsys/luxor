@@ -1,0 +1,16 @@
+{
+    "name": "Luxor",
+    "symbol": "LXR",
+    "description": "Luxor (LXR) serves as the core utility and governance infrastructure for the Luxor ecosystem on Solana. Designed to facilitate decentralized interactions, LXR enables seamless liquidity flows and protocol engagement within the network.",
+    "image": "https://www.byluxor.xyz/assets/icons/lxr_logo.png",
+    "external_url": "https://www.byluxor.xyz",
+    "attributes": [],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://www.byluxor.xyz/assets/icons/lxr_logo.png",
+                "type": "image/png"
+            }
+        ]
+    }
+}

@@ -96,9 +96,14 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                             <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                         </Link>
 
-                        <button className="px-7 py-2.5 border border-white/20 hover:border-white/40 text-white rounded-full font-bold text-[12px] transition-all backdrop-blur-sm">
-                            Explorar Ecosistema
-                        </button>
+                        <Link
+                            href="https://dial.to/?action=solana-action:https://www.byluxor.xyz/api/actions/donate"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-7 py-2.5 border border-white/20 hover:border-white/40 text-blue-400 rounded-full font-bold text-[12px] transition-all backdrop-blur-sm flex items-center gap-2"
+                        >
+                            Support Luxor
+                        </Link>
                     </div>
                 </motion.div>
             </div>

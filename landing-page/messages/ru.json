@@ -1,7 +1,7 @@
 {
     "HomePage": {
         "title": "Welcome to the\nLuxor Economy.",
-        "subtitle": "**Luxor (LXR)** drives the Excelsior ecosystem as its public liquidity engine. Designed for utility, stability, and growth directly on Solana.",
+        "subtitle": "Luxor (LXR) drives the Excelsior ecosystem as its public liquidity engine. Designed for utility, stability, and growth directly on Solana.",
         "cta_main": "Enter the Vault",
         "cta_secondary": "Read the Whitepaper",
         "features": {

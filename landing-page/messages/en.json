@@ -1,7 +1,7 @@
 {
     "HomePage": {
         "title": "Welcome to the\nLuxor Economy.",
-        "subtitle": "**Luxor (LXR)** drives the Excelsior ecosystem as its public liquidity engine. Designed for utility, stability, and growth directly on Solana.",
+        "subtitle": "Luxor (LXR) drives the Luxor network as its public liquidity engine. Designed for utility, stability, and growth directly on Solana.",
         "cta_main": "Enter the Vault",
         "cta_secondary": "Read the Whitepaper",
         "features": {
@@ -82,6 +82,11 @@
                     "videoId": "hoDYYCyxMuE"
                 },
                 {
+                    "name": "Alejandro Salomón",
+                    "desc": "Visionary entrepreneur discussing the future of digital assets and technological innovation.",
+                    "videoId": "ZWII5oAOt1Y"
+                },
+                {
                     "name": "Mark Zuckerberg",
                     "desc": "His focus on global connectivity shows us that the world is a single network.",
                     "videoId": "gF12Xn3C-0c"
@@ -114,20 +119,46 @@
         }
     },
     "LuxorPage": {
-        "header_eyebrow": "POWERED BY SOLANA",
-        "title": "LUXOR $LXR",
-        "subtitle": "The ecosystem's liquidity engine. Designed for utility, stability, and growth directly on Solana.",
-        "inferno_title": "Inferno Mechanism",
-        "inferno_desc": "Designed to reward holders. A 1% fee is applied to every transaction (Buy/Sell/Transfer). This fee is automatically collected to strengthen the ecosystem treasury.",
-        "buy_raydium": "Buy on Raydium",
-        "view_chart": "View Chart",
-        "total_burnt": "Total Burnt",
-        "circulating_supply": "Circulating Supply",
-        "token_distribution": "Token Distribution",
-        "dist_public": "Public / Vault",
-        "dist_holding": "Holding / Private",
-        "dist_ops": "Operations",
-        "dist_creator": "Creator (Vesting)"
+        "header_eyebrow": "Live Ecosystem Parameters",
+        "title": "Luxor",
+        "subtitle": "The intelligent core of the Luxor network. Transparent distribution, audited security, and a perpetual growth model.",
+        "distribution_title": "Token Distribution",
+        "distribution_subtitle": "Allocated across sovereign vaults.",
+        "fixed_supply": "Fixed Supply",
+        "genesis_price": "Genesis Price",
+        "stats_fees": "Protocol Fees",
+        "stats_fees_desc": "Fully automated on-chain collection and distribution via Fee Collector.",
+        "stats_safety": "Safety Core",
+        "stats_consensus": "3/6 Consensus",
+        "stats_liquidity": "Liquidity",
+        "stats_locked": "Locked 24M",
+        "stats_protocol": "Protocol",
+        "stats_audited": "Audited",
+        "stats_trace": "VIEW SOLSCAN",
+        "stats_cta_eyebrow": "Ready to explore?",
+        "stats_cta_title": "Jupiter Terminal",
+        "stats_burn_title": "Article 3: Fees",
+        "vaults": {
+            "reserve": "Reserve Vault",
+            "reserve_desc": "Central bank, max manual releases 1% monthly",
+            "vesting": "Main Holding (Vesting)",
+            "vesting_desc": "24-month linear vesting, 6-month cliff",
+            "ops": "Operations Fund",
+            "ops_desc": "Infrastructure and development",
+            "founder_lock": "Founder Team Lock Fund",
+            "founder_lock_desc": "Locked for 18 months",
+            "liquid": "Main Holding (Liquid)",
+            "liquid_desc": "Immediately available for strategic operations",
+            "liquidity": "Initial Liquidity (Raydium)",
+            "liquidity_desc": "Initial pool (locked 24 months)",
+            "personal": "Founder Team Personal",
+            "personal_desc": "Unlocked (operational expenses)"
+        },
+        "fee_items": {
+            "xls": "XLS Vault",
+            "usdx": "USDX Reserve",
+            "founder": "Founder Fee Share"
+        }
     },
     "TeamPage": {
         "title": "Transparency & Team",
@@ -234,7 +265,21 @@
             "title_onchain": "On-Chain"
         },
         "view_more": "View More Details",
-        "coming_soon": "Luxor will soon show you that you are also part of the future"
+        "coming_soon": "Luxor will soon show you that you are also part of the future",
+        "github": "Github",
+        "github_desc": "Open source code.",
+        "holders": "Holders (Orb)",
+        "holders_desc": "Token distribution data.",
+        "contract_desc": "7Qm6...dth",
+        "certificates": "Certificates",
+        "certificates_desc": "Trust verification.",
+        "contract_verified": "Contract Verified",
+        "contract_verified_desc": "Secure smart contract.",
+        "phantom_desc": "Solana Wallet.",
+        "jupiter_desc": "Trade LXR.",
+        "dex_desc": "Real-time charts.",
+        "orb_desc": "Holders & Analytics.",
+        "solscan_desc": "Solana Explorer."
     },
     "Common": {
         "connectWallet": "Connect Wallet",

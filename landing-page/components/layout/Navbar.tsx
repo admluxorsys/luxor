@@ -8,7 +8,8 @@ import {
     ChevronDown, ShieldCheck, PieChart,
     Lock, Flame, Copy, ExternalLink,
     Users, Briefcase, Info, Map,
-    Zap, Vote, Search, Globe
+    Zap, Vote, Search, Globe,
+    FileText, Layers
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSwitcher from '../features/LanguageSwitcher';
@@ -73,18 +74,18 @@ export default function Navbar() {
             { icon: Users, title: t('mega.eco_title_1'), desc: t('mega.eco_desc_1'), href: '#' },
             { icon: Zap, title: t('mega.eco_title_2'), desc: t('mega.eco_desc_2'), href: '#' },
             { icon: Map, title: t('mega.eco_title_3'), desc: t('mega.eco_desc_3'), href: '#' },
-            { icon: Search, title: 'Github', desc: 'Open source code.', href: 'https://github.com', external: true },
+            { icon: Search, title: t('github'), desc: t('github_desc'), href: 'https://github.com', external: true },
         ],
         tokenomics: [
             { icon: PieChart, title: t('mega.tok_title_1'), desc: t('mega.tok_desc_1'), href: '#' },
-            { icon: Users, title: 'Holders (Orb)', desc: 'Token distribution data.', href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth/token-holders', external: true },
+            { icon: Users, title: t('holders'), desc: t('holders_desc'), href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth/token-holders', external: true },
             { icon: Lock, title: t('mega.tok_title_3'), desc: t('mega.tok_desc_3'), href: '#' },
-            { icon: ShieldCheck, title: t('mega.tok_title_4'), desc: '7Qm6...dth', href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: ShieldCheck, title: t('mega.tok_title_4'), desc: t('contract_desc'), href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
         ],
         utility: [
             { icon: Flame, title: t('mega.util_title_1'), desc: t('mega.util_desc_1'), href: '#' },
             { icon: Vote, title: t('mega.util_title_2'), desc: t('mega.util_desc_2'), href: '#' },
-            { icon: Globe, title: t('mega.util_title_3'), desc: t('mega.util_desc_3'), href: 'https://solscan.io', external: true },
+            { icon: Globe, title: t('mega.util_title_3'), desc: t('solscan_desc'), href: 'https://solscan.io', external: true },
         ],
         business: [
             { icon: Zap, title: t('business'), desc: t('mega.eco_desc_2'), href: '#' },
@@ -93,15 +94,15 @@ export default function Navbar() {
         ],
         security: [
             { icon: ShieldCheck, title: t('mega.tok_title_2'), desc: t('mega.tok_desc_2'), href: '#' },
-            { icon: Info, title: 'Certificates', desc: 'Trust verification.', href: '#' },
-            { icon: Lock, title: 'Contract Verified', desc: 'Secure smart contract.', href: '#' },
+            { icon: Info, title: t('certificates'), desc: t('certificates_desc'), href: '#' },
+            { icon: Lock, title: t('contract_verified'), desc: t('contract_verified_desc'), href: '#' },
         ],
         onchain: [
-            { icon: Zap, title: "Phantom", desc: "Solana Wallet.", href: 'https://phantom.app/', external: true },
-            { icon: Zap, title: "Raydium (Swap)", desc: "Trade LXR.", href: 'https://raydium.io/swap/?inputMint=sol&outputMint=7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
-            { icon: Search, title: "DexScreener", desc: "Real-time charts.", href: 'https://dexscreener.com/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
-            { icon: Zap, title: "Orb Markets", desc: "Holders & Analytics.", href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
-            { icon: Globe, title: "Solscan", desc: "Solana Explorer.", href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Zap, title: "Phantom", desc: t('phantom_desc'), href: 'https://phantom.app/', external: true },
+            { icon: Zap, title: "Raydium (Swap)", desc: t('jupiter_desc'), href: 'https://raydium.io/swap/?inputMint=sol&outputMint=7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Search, title: "DexScreener", desc: t('dex_desc'), href: 'https://dexscreener.com/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Zap, title: "Orb Markets", desc: t('orb_desc'), href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Globe, title: "Solscan", desc: t('solscan_desc'), href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
         ]
     };
 
@@ -150,7 +151,6 @@ export default function Navbar() {
                                     >
                                         <button className={`flex items-center gap-1.5 text-[13px] font-sans px-3 py-2 rounded-full transition-all ${activeMega === item.id ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white hover:bg-white/5'}`}>
                                             {item.label}
-                                            <ChevronDown size={14} className={`transition-transform duration-300 ${activeMega === item.id ? 'rotate-180' : ''}`} />
                                         </button>
                                     </div>
                                 ))}
@@ -162,18 +162,32 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-8">
                         {/* Group 1: Social Media */}
                         <div className="flex items-center gap-5 text-white/40">
-                            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                            <a href="https://x.com/luxor_lxr" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                 </svg>
                             </a>
-                            <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                            <a href="https://t.me/luxor_lxr" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                                 <Send size={15} />
                             </a>
-                            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                            <a href="https://discord.gg/qC456dPg" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.862-1.295 1.196-1.995a.076.076 0 0 0-.041-.105 13.11 13.11 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.420 0 1.333-.946 2.418-2.157 2.418z" />
                                 </svg>
+                            </a>
+                            <a href="https://github.com/admluxorsys/luxor" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="GitHub">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                                </svg>
+                            </a>
+                            <a href="https://github.com/admluxorsys/luxor/blob/main/Whitepaper.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Constitution">
+                                <FileText size={16} />
+                            </a>
+                            <a href="http://stake.lxr-network.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="dApp Staking">
+                                <Layers size={16} />
+                            </a>
+                            <a href="https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Solscan Explorer">
+                                <Search size={16} />
                             </a>
                         </div>
 
@@ -198,6 +212,15 @@ export default function Navbar() {
                                     <div className="bg-blue-800 group-hover:bg-blue-900 text-white px-5 h-full flex items-center justify-center text-xs font-sans font-bold border-l border-white/10 transition-colors">
                                         {t('buy')}
                                     </div>
+                                </a>
+
+                                <a
+                                    href="https://dial.to/?action=solana-action:https://www.byluxor.xyz/api/actions/donate"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center bg-blue-600/20 border border-blue-500/30 rounded-full h-9 hover:bg-blue-600/40 hover:border-blue-500/50 transition-all px-4 text-xs font-bold text-blue-400 font-sans"
+                                >
+                                    Donate
                                 </a>
 
                                 <div className="h-9 wallet-pill-container">

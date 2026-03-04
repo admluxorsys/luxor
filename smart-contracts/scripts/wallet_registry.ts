@@ -9,25 +9,25 @@ export const WALLET_REGISTRY = {
     // 2. TOKEN SUPPLY DISTRIBUTION (LXR)
     // ==========================================
     reserve_vault_59: "FR6mPMN9NegBYkMGsZymuNEXxYQjesQDNsetVTFRh5JG",   // 59% Reserve Vault
-    liquidity_1: "FEARFtN9VueEFVDCahtoWGu1A8Xdsmr2et3iWqAVo6hg",        // 1% Liquidity (Initial Pool)
+    liquidity_1: "FEARFtN9VueEFVDCahtoWGu1A8Xdsmr2et3iWqAVo6hg",        // 1% Initial Liquidity (Raydium)
     main_holding_vesting_15: "BQEPJzJNpaUhxZiZYuqJG64oHaJykLoxMQGBfERVJCqc", // 15% Main Holding (Vesting)
     main_holding_liquid_5: "CziGTVvL8ZSph4xYsxoox52x1aDEX4UxT7HC2Y2TZCVs",   // 5% Main Holding (Liquid)
     operations_fund_10: "HcYv3HVXi3Qd3B494QUhf7odX6JvABZwao1r7kMLDHXf",      // 10% Operations Fund
-    founder_lock_fund_9: "8YtDVK2qC7V8nM1GFqXnic4sANA5FoYBj5dtLePs3zpi",     // 9% Founder Lock Fund
-    founder_personal_1: "AcurPgkabibbSNPXCtaVZQZcQcAGptkoMzLBbdMzq76d",      // 1% Founder Personal
+    founder_lock_fund_9: "8YtDVK2qC7V8nM1GFqXnic4sANA5FoYBj5dtLePs3zpi",     // 9% Founder Team Lock Fund
+    founder_personal_1: "AcurPgkabibbSNPXCtaVZQZcQcAGptkoMzLBbdMzq76d",      // 1% Founder Team Personal
 
     // ==========================================
     // 3. LUXOR FEES DISTRIBUTION
     // ==========================================
     fee_collector_main: "DdWG5ooDR84VfkM7nK5yTx9FnWNMQWk7NzTsTYQzBZmU",      // 100% Fee Collector
-    fees_excelsior_vault_30: "7rMZcFmPXoDYqVeWd4v9tRmC99R88EToS7U6aDADzYv8", // 30% Fees Excelsior Vault
-    fees_stablecoin_reserve_30: "F9k4xRUrNvb6qrhY2c72ytNuqokVQZUh1VXLNi5XzsAz", // 30% Fees Stablecoin Reserve
-    fees_founder_share_40: "ANXx5N1ZbA4FM9WbZsD9m3Cda11SMmxg8zkN85ZvqCbY",    // 40% Fees Founder Share
+    fees_xls_vault_30: "7rMZcFmPXoDYqVeWd4v9tRmC99R88EToS7U6aDADzYv8",        // 30% XLS Vault
+    fees_usdx_stablecoin_reserve_30: "F9k4xRUrNvb6qrhY2c72ytNuqokVQZUh1VXLNi5XzsAz", // 30% USDX Stablecoin Reserve
+    fees_founder_team_share_40: "ANXx5N1ZbA4FM9WbZsD9m3Cda11SMmxg8zkN85ZvqCbY",    // 40% Founder Team Fee Share
 
     // ==========================================
     // 4. EXCELSIOR YIELD / RWA RENTS (12 TARGETS)
     // ==========================================
-    enterprise_yield_vault: "CSyF2rMZZiR7Ldxn4ZJk1jjhA4b4Hkpw2h65G5tLzUjz", // 100% Source Vault
+    enterprise_yield_vault: "CSyF2rMZZiR7Ldxn4ZJk1jjhA4b4Hkpw2h65G5tLzUjz", // 100% Enterprise Yield Vault
     yield_energy_grid: "EQNKAzQSJGosQ1wTezE86oJeUDZzCiihGezkTKx4SwnX",       // 8.33%
     yield_community_fund: "8bazNwCUj5jVTCPykKH8e3HJLVFbpEcZjALSUPUecBok",    // 8.33%
     yield_market_protection: "8zJcBQuUKCSNMJDZTjcWX5zMUcwnCTPK7TWQqBWKPsVu", // 8.33%
@@ -44,6 +44,6 @@ export const WALLET_REGISTRY = {
     // ==========================================
     // 5. SECURITY & BURN TARGETS
     // ==========================================
-    lock_tokens_security: "8jxRTukX3DBgF5dM4VHwamAhwAf3PodhkCBd8XhsKJQu", // Security and Audits (Constitutional Locked Vault)
+    lock_tokens_security: "8jxRTukX3DBgF5dM4VHwamAhwAf3PodhkCBd8XhsKJQu", // Lock Tokens Vault
     burn_tokens: "GdGWLfdzSexEBV6j9pNZhAmsqXvMkW9uJ76iWMtPLXqu",          // For future burns
 };

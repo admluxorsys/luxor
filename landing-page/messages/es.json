@@ -1,7 +1,7 @@
 {
     "HomePage": {
         "title": "Bienvenido a la\nEconomía de Luxor",
-        "subtitle": "Luxor (LXR) impulsa la economía de nuestros aliados. Úsalo para acceder a beneficios exclusivos, realizar pagos rápidos y fortalecer la infraestructura de nuestro ecosistema en Solana",
+        "subtitle": "Luxor (LXR) impulsa la red Luxor como su motor de liquidez público. Diseñado para la utilidad, estabilidad y crecimiento directamente sobre Solana.",
         "cta_main": "Entrar a la Bóveda",
         "cta_secondary": "Leer el Documento Técnico",
         "features": {
@@ -74,12 +74,17 @@
                 {
                     "name": "Elon Musk",
                     "desc": "Su búsqueda de una humanidad interplanetaria nos enseña que no debemos limitarnos a fronteras terrestres.",
-                    "videoId": "hCUNGLwiSpQ"
+                    "videoId": "IgifEgm1-e0"
                 },
                 {
                     "name": "Jensen Huang",
                     "desc": "Trata de democratizar la IA para que cualquier humano sea tan productivo como una empresa entera.",
                     "videoId": "hoDYYCyxMuE"
+                },
+                {
+                    "name": "Alejandro Salomón",
+                    "desc": "Emprendedor visionario analizando el futuro de los activos digitales y la innovación tecnológica.",
+                    "videoId": "ZWII5oAOt1Y"
                 },
                 {
                     "name": "Mark Zuckerberg",
@@ -114,20 +119,46 @@
         }
     },
     "LuxorPage": {
-        "header_eyebrow": "CONSTRUIDO EN SOLANA",
-        "title": "LUXOR $LXR",
-        "subtitle": "El motor de liquidez del ecosistema. Diseñado para la utilidad, estabilidad y crecimiento directamente en Solana.",
-        "inferno_title": "Mecanismo Inferno",
-        "inferno_desc": "Diseñado para recompensar a los holders. Se aplica una comisión del 1% a cada transacción (Compra/Venta/Transferencia). Esta comisión se recolecta automáticamente para fortalecer el tesoro del ecosistema.",
-        "buy_raydium": "Comprar en Raydium",
-        "view_chart": "Ver Gráfica",
-        "total_burnt": "Total Quemado",
-        "circulating_supply": "Suministro Circulante",
-        "token_distribution": "Distribución de Tokens",
-        "dist_public": "Público / Bóveda",
-        "dist_holding": "Holding / Privado",
-        "dist_ops": "Operaciones",
-        "dist_creator": "Creador (Vesting)"
+        "header_eyebrow": "Parámetros del Ecosistema en Vivo",
+        "title": "Luxor",
+        "subtitle": "El núcleo inteligente de la red Luxor. Distribución transparente, seguridad auditada y un modelo de crecimiento perpetuo.",
+        "distribution_title": "Distribución de Tokens",
+        "distribution_subtitle": "Asignados en bóvedas soberanas.",
+        "fixed_supply": "Suministro Fijo",
+        "genesis_price": "Precio Génesis",
+        "stats_fees": "Tarifas del Protocolo",
+        "stats_fees_desc": "Recaudación y distribución on-chain totalmente automatizada vía Fee Collector.",
+        "stats_safety": "Núcleo de Seguridad",
+        "stats_consensus": "Consenso 3/6",
+        "stats_liquidity": "Liquidez",
+        "stats_locked": "Bloqueado 24M",
+        "stats_protocol": "Protocolo",
+        "stats_audited": "Auditado",
+        "stats_trace": "VER SOLSCAN",
+        "stats_cta_eyebrow": "¿Listo para explorar?",
+        "stats_cta_title": "Terminal de Jupiter",
+        "stats_burn_title": "Artículo 3: Tarifas",
+        "vaults": {
+            "reserve": "Bóveda de Reserva",
+            "reserve_desc": "Banco central, liberación manual máx. 1% mensual",
+            "vesting": "Holding Principal (Vesting)",
+            "vesting_desc": "Vesting lineal 24 meses, acantilado 6 meses",
+            "ops": "Fondo de Operaciones",
+            "ops_desc": "Infraestructura y desarrollo",
+            "founder_lock": "Fondo Bloqueado Equipo",
+            "founder_lock_desc": "Bloqueado por 18 meses",
+            "liquid": "Holding Principal (Líquido)",
+            "liquid_desc": "Disponible de inmediato para operaciones estratégicas",
+            "liquidity": "Liquidez Inicial (Raydium)",
+            "liquidity_desc": "Pool inicial (bloqueado 24 meses)",
+            "personal": "Fondo Personal Equipo",
+            "personal_desc": "Desbloqueado (gastos operativos)"
+        },
+        "fee_items": {
+            "xls": "Bóveda XLS",
+            "usdx": "Reserva USDX",
+            "founder": "Participación del Equipo"
+        }
     },
     "TeamPage": {
         "title": "Transparencia & Equipo",
@@ -234,7 +265,21 @@
             "title_onchain": "On-Chain"
         },
         "view_more": "Ver más detalles",
-        "coming_soon": "Próximamente Luxor te mostrará que tú también eres parte del futuro"
+        "coming_soon": "Próximamente Luxor te mostrará que tú también eres parte del futuro",
+        "github": "Github",
+        "github_desc": "Código de fuente abierta.",
+        "holders": "Holders (Orb)",
+        "holders_desc": "Datos de distribución de tokens.",
+        "contract_desc": "7Qm6...dth",
+        "certificates": "Certificados",
+        "certificates_desc": "Verificación de confianza.",
+        "contract_verified": "Contrato Verificado",
+        "contract_verified_desc": "Contrato inteligente seguro.",
+        "phantom_desc": "Billetera Solana.",
+        "jupiter_desc": "Comerciar LXR.",
+        "dex_desc": "Gráficas en tiempo real.",
+        "orb_desc": "Holders y Analítica.",
+        "solscan_desc": "Explorador de Solana."
     },
     "Common": {
         "connectWallet": "Conectar Billetera",

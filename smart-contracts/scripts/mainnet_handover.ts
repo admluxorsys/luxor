@@ -113,13 +113,13 @@ async function main() {
         const MULTIPLIER = BigInt(1_000_000_000);
         const supplyXls = BigInt(20_250_000) * MULTIPLIER;
         const distributionXls = [
-            { name: "59% Reserve Vault", wallet: WALLET_REGISTRY.reserve_vault_59, percentage: 59 },
-            { name: "1% Liquidity", wallet: WALLET_REGISTRY.liquidity_1, percentage: 1 },
+            { name: "59% Reserve Vault (XLS)", wallet: WALLET_REGISTRY.reserve_vault_59, percentage: 59 },
+            { name: "1% Initial Liquidity (Reserved)", wallet: WALLET_REGISTRY.liquidity_1, percentage: 1 },
             { name: "15% Main Holding (Vesting)", wallet: WALLET_REGISTRY.main_holding_vesting_15, percentage: 15 },
             { name: "5% Main Holding (Liquid)", wallet: WALLET_REGISTRY.main_holding_liquid_5, percentage: 5 },
-            { name: "10% Operations Fund", wallet: WALLET_REGISTRY.operations_fund_10, percentage: 10 },
-            { name: "9% Founder Lock Fund", wallet: WALLET_REGISTRY.founder_lock_fund_9, percentage: 9 },
-            { name: "1% Founder Personal", wallet: WALLET_REGISTRY.founder_personal_1, percentage: 1 }
+            { name: "10% Operations Fund (XLS)", wallet: WALLET_REGISTRY.operations_fund_10, percentage: 10 },
+            { name: "9% Founder Team Lock Fund (XLS)", wallet: WALLET_REGISTRY.founder_lock_fund_9, percentage: 9 },
+            { name: "1% Founder Team Personal (XLS)", wallet: WALLET_REGISTRY.founder_personal_1, percentage: 1 }
         ];
 
         console.log("Distributing 20.25M XLS according to Constitution...");
@@ -201,12 +201,12 @@ async function main() {
         const supplyLxr = BigInt(2_025_000_000) * MULTIPLIER;
         const distributionLxr = [
             { name: "59% Reserve Vault", wallet: WALLET_REGISTRY.reserve_vault_59, percentage: 59 },
-            { name: "1% Liquidity", wallet: WALLET_REGISTRY.liquidity_1, percentage: 1 },
+            { name: "1% Initial Liquidity (Raydium)", wallet: WALLET_REGISTRY.liquidity_1, percentage: 1 },
             { name: "15% Main Holding (Vesting)", wallet: WALLET_REGISTRY.main_holding_vesting_15, percentage: 15 },
             { name: "5% Main Holding (Liquid)", wallet: WALLET_REGISTRY.main_holding_liquid_5, percentage: 5 },
             { name: "10% Operations Fund", wallet: WALLET_REGISTRY.operations_fund_10, percentage: 10 },
-            { name: "9% Founder Lock Fund", wallet: WALLET_REGISTRY.founder_lock_fund_9, percentage: 9 },
-            { name: "1% Founder Personal", wallet: WALLET_REGISTRY.founder_personal_1, percentage: 1 }
+            { name: "9% Founder Team Lock Fund", wallet: WALLET_REGISTRY.founder_lock_fund_9, percentage: 9 },
+            { name: "1% Founder Team Personal", wallet: WALLET_REGISTRY.founder_personal_1, percentage: 1 }
         ];
 
         console.log("Distributing 2.025B LXR according to Constitution...");

@@ -33,7 +33,7 @@ export const StrategyReport = () => {
                             <span className="font-mono text-white">2.5% / 5 Years</span>
                         </li>
                         <li className="text-xs text-white/50 pt-2">
-                            Distribution: 60% Reserve, 20% Holding, 10% Operations, 10% Founder.
+                            Distribution: 59% Reserve, 1% Liquidity, 20% Holding, 10% Operations, 10% Founder.
                         </li>
                     </ul>
                 </div>

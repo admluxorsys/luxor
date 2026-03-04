@@ -16,14 +16,17 @@ export const GET = async (req: Request) => {
             links: {
                 actions: [
                     {
+                        type: "transaction",
                         label: "0.1 SOL",
                         href: new URL(`/api/actions/donate?amount=0.1`, url.origin).toString()
                     },
                     {
+                        type: "transaction",
                         label: "1 SOL",
                         href: new URL(`/api/actions/donate?amount=1`, url.origin).toString()
                     },
                     {
+                        type: "transaction",
                         label: "Custom",
                         href: new URL(`/api/actions/donate?amount={amount}`, url.origin).toString(),
                         parameters: [
@@ -79,6 +82,7 @@ export const POST = async (req: Request) => {
 
         const payload: ActionPostResponse = await createPostResponse({
             fields: {
+                type: "transaction",
                 transaction,
                 message: `Thank you for supporting Luxor ecosystem with ${amount} SOL!`,
             }

@@ -2,12 +2,17 @@
 
 import { useTranslations } from 'next-intl';
 import { Hero } from '@/components/Hero';
+import { IconMarquee } from '@/components/IconMarquee';
 import { InnovationSection } from '@/components/home/InnovationSection';
-import { VitalSection } from '@/components/home/VitalSection';
-import { VisionSection } from '@/components/home/VisionSection';
+import { PhilosophySection } from '@/components/home/PhilosophySection';
+import { ArchitectureSection } from '@/components/home/ArchitectureSection';
+import { BracketsSection } from '@/components/home/BracketsSection';
+import { JoinSection } from '@/components/home/JoinSection';
+import { ShowcaseSection } from '@/components/home/ShowcaseSection';
 import { GiantsSection } from '@/components/home/GiantsSection';
 import { PillarsSection } from '@/components/home/PillarsSection';
 import { CTASection } from '@/components/home/CTASection';
+import { ReviewsSection } from '@/components/home/ReviewsSection';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
@@ -22,23 +27,29 @@ export default function HomePage() {
         ctaLink="/luxor"
       />
 
-      {/* Innovation Section - Text left, Media Right */}
+      <IconMarquee />
+
       <InnovationSection />
+      <PhilosophySection />
+      <ArchitectureSection />
 
-      {/* Vital Section */}
-      <VitalSection />
+      <BracketsSection />
 
-      {/* Vision Section - Sidebar left, Media right */}
-      <VisionSection />
+      <JoinSection />
 
-      {/* Giants Section - Large feature left, small features right */}
-      <GiantsSection />
+      <ShowcaseSection />
 
       {/* Pillars Section */}
       <PillarsSection />
 
+      {/* Giants Section - Large feature left, small features right */}
+      <GiantsSection />
+
       {/* CTA Section */}
       <CTASection />
+
+      {/* Reviews Section */}
+      <ReviewsSection />
 
     </div>
   );

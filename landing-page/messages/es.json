@@ -37,26 +37,81 @@
         },
         "eyebrow": "ECOSISTEMA EN SOLANA",
         "innovation": {
-            "title": "De la Innovación a la Prosperidad Compartida.",
-            "desc": "En Luxor, no solo observamos el futuro; lo estamos construyendo al fusionar el ingenio latinoamericano con el motor de innovación más grande de la historia: Estados Unidos. Inspirados por décadas de disciplina, libertad económica y evolución tecnológica norteamericana, creemos que el siguiente paso lógico para la humanidad no es la competencia divisiva, sino la integración total de talentos.",
+            "title": "¿Qué es Luxor exactamente?",
+            "subtitle": "Luxor (LXR) es el token de utilidad nativo del ecosistema Luxor. No es un activo pasivo; es una herramienta activa diseñada para quienes crean, emprenden y consumen en la nueva economía digital.",
+            "desc": "Al usar LXR, no solo posees un activo en Solana, obtienes superpoderes dentro de nuestra red:",
+            "items": [
+                {
+                    "title": "Descuentos Exclusivos",
+                    "desc": "Paga servicios de administración empresarial y personal con beneficios directos."
+                },
+                {
+                    "title": "Acceso a Experiencias",
+                    "desc": "Tu saldo LXR es tu entrada a eventos, herramientas avanzadas y funciones premium del ecosistema."
+                },
+                {
+                    "title": "Ahorro en Consumo",
+                    "desc": "Obtén beneficios en comercios aliados, desde cafeterías hasta tecnología, a través de nuestra pasarela de pagos."
+                },
+                {
+                    "title": "Gobernanza Activa",
+                    "desc": "Participa en el desarrollo de nuevas funciones. Tu voz ayuda a decidir hacia dónde crece el motor."
+                }
+            ],
             "btn": "Ver la película"
+        },
+        "philosophy": {
+            "title": "Nuestra Filosofía: El Hemisferio de la Abundancia",
+            "subtitle": "Nacida en Salt Lake City, Luxor se alinea con los valores de innovación del corredor tecnológico del Oeste. Creemos que la abundancia no se espera, se crea.",
+            "items": [
+                {
+                    "title": "Sin Fronteras",
+                    "desc": "Una herramienta para el emprendedor en Estados Unidos, el profesional en Latinoamérica y cualquier persona en el continente americano que busque prosperar."
+                },
+                {
+                    "title": "Respaldo y Estabilidad",
+                    "desc": "Construido sobre la infraestructura ultra-rápida de Solana, Luxor integra la eficiencia del dólar digital para que la economía global llegue a cada rincón."
+                },
+                {
+                    "title": "Para Todas las Generaciones",
+                    "desc": "Desde los nativos digitales hasta quienes buscan modernizar sus negocios centenarios. Luxor es fácil, accesible y universal."
+                }
+            ]
+        },
+        "architecture": {
+            "title": "Arquitectura Funcional",
+            "subtitle": "En lugar de resaltar la escasez, resaltamos la predictibilidad para el usuario y el comercio.",
+            "items": [
+                {
+                    "title": "Capacidad de Red Definida",
+                    "desc": "Contamos con un volumen de unidades fijo para garantizar que el ecosistema siempre tenga el combustible necesario para operar sin inflación inesperada."
+                },
+                {
+                    "title": "Autonomía Programada",
+                    "desc": "LXR funciona bajo reglas de código abierto en Solana. Ningún ente central puede cambiar las reglas de uso, dándote total seguridad."
+                },
+                {
+                    "title": "Economía Circular",
+                    "desc": "El 100% de lo recaudado se utiliza para fortalecer la infraestructura técnica y asegurar que las herramientas sigan siendo rápidas y económicas."
+                }
+            ]
         },
         "vital": {
             "title": "¿Por qué es vital hacer esto ahora?",
-            "desc": "El mundo se encuentra en un punto de inflexión. La tecnología ya no es una opción, es el lenguaje de la supervivencia. Por años, Latinoamérica ha poseído el talento y la voluntad, pero le han faltado los puentes hacia el capital y la infraestructura de vanguardia. Hacerlo ahora es urgente porque:",
+            "desc": "El mundo se encuentra en un punto de inflexión. La tecnología ya no es una opción; es el lenguaje de la supervivencia. Mientras otras regiones se fragmentan, el Hemisferio Americano se erige como un faro de sinergia sin explotar. Durante años, la brecha entre el capital y el talento ha limitado nuestro potencial colectivo. Luxor está aquí para cerrar esa brecha, creando una infraestructura digital unificada desde Salt Lake City hasta los rincones más lejanos de las Américas.",
             "btn": "Ver modelos",
             "items": [
                 {
-                    "title": "La Demografía es el Destino",
-                    "desc": "Mientras otras potencias envejecen, Latinoamérica late con una juventud hambrienta de conocimiento y éxito. Si canalizamos esa energía hacia el modelo de innovación de EE. UU., crearemos un bloque económico sin precedentes."
+                    "title": "Un Bloque Económico Unificado",
+                    "desc": "La Demografía es el Destino. Mientras otras potencias globales enfrentan el envejecimiento de la población y el estancamiento, las Américas pulsan con una energía joven y nativa tecnológica. Al alinear el modelo de innovación de EE. UU. con el talento de todo el hemisferio, no solo estamos construyendo una red: estamos construyendo el bloque económico más resiliente y dinámico del planeta."
                 },
                 {
-                    "title": "Seguridad y Estabilidad Global",
-                    "desc": "Un hemisferio próspero es un hemisferio seguro. Al llevar el 'sueño americano' de la innovación a cada rincón de América Latina, estamos erradicando la falta de oportunidades que genera inestabilidad, reemplazándola con progreso tecnológico."
+                    "title": "Estabilidad Hemisférica",
+                    "desc": "Seguridad a través de la Prosperidad. Un hemisferio próspero es un hemisferio seguro. Luxor facilita el flujo de utilidad y herramientas digitales a través de las fronteras, erradicando la falta de oportunidades que genera inestabilidad. Estamos reemplazando fronteras por puentes, asegurando que el 'Sueño Americano' del progreso tecnológico sea una realidad compartida para todos en nuestro hemisferio."
                 },
                 {
                     "title": "La Era de la Abundancia",
-                    "desc": "Con la IA y la robótica, estamos pasando de una economía de escasez a una de abundancia. Luxor asegura que Latinoamérica no se quede atrás, sino que sea la mano de obra calificada y la mente creativa detrás de los robots y algoritmos del mañana."
+                    "desc": "Aprovechando la IA y la Robótica. Estamos en transición de una economía de escasez a una de abundancia. Luxor asegura que las Américas no solo sean testigos de la revolución de la IA, sino que la lideren. Desde Silicon Slopes hasta cada ciudad del continente, proporcionamos el motor de liquidez para la fuerza laboral calificada y las mentes creativas detrás de los algoritmos del mañana."
                 }
             ]
         },
@@ -93,21 +148,46 @@
                 }
             ]
         },
+        "brackets": {
+            "builders": {
+                "badge": "Builders & Freelancers",
+                "title": "Infraestructura de élite",
+                "subtitle": "Tu talento merece una infraestructura a su nivel.",
+                "btn": "Empezar a construir"
+            },
+            "merchants": {
+                "badge": "Merchants & Corporations",
+                "title": "Mercado Global",
+                "subtitle": "Transforma la manera en que tu empresa interactúa con el mundo.",
+                "btn": "Escalar ahora"
+            },
+            "customers": {
+                "badge": "Global Customers",
+                "title": "Acceso Premium",
+                "subtitle": "Acceso a la abundancia y al trato premium que mereces.",
+                "btn": "Únete a la élite"
+            }
+        },
+        "join": {
+            "title": "El futuro no se mira, se construye.",
+            "subtitle": "Únete a Luxor, porque Luxor eres tú.",
+            "btn": "Únete hoy"
+        },
         "pillars": {
-            "title": "Los Pilares de Luxor: Nuestra Lucha",
-            "desc": "Visualizamos un futuro definido por la IA, la robótica avanzada, la autogestión financiera y la abundancia de recursos. Nuestra misión es proporcionar las herramientas y el conocimiento que han mantenido a ciertas economías paralizadas por décadas. Luchamos por un mundo donde:",
+            "title": "Nuestra Visión para las Américas",
+            "desc": "Estamos construyendo un futuro definido por la IA, la robótica avanzada y la utilidad descentralizada. Nuestra misión es desmantelar las barreras que han mantenido a las economías fragmentadas durante décadas. Somos el puente digital para un hemisferio que crea, innova y lidera.",
             "items": [
                 {
-                    "title": "EE.UU. sea más fuerte que nunca",
-                    "desc": "Fortalecido por una alianza estratégica con su propio hemisferio, asegurando el liderazgo mundial."
+                    "title": "Norteamérica Fuerte y Unificada",
+                    "desc": "Fortificando el Liderazgo Global. Al fomentar una alianza tecnológica estratégica en todo el hemisferio, aseguramos que EE. UU. siga siendo el motor de innovación del mundo, respaldado por una cadena de talento y activos digitales unificados."
                 },
                 {
-                    "title": "Latinoamérica despierte",
-                    "desc": "De exportador de materias primas a ser el exportador de innovación y software más grande del mundo."
+                    "title": "El Gran Despertar Latinoamericano",
+                    "desc": "De los Recursos a la Innovación. Cambiamos el enfoque del continente de exportar materias primas a convertirse en el motor mundial y principal exportador de software, granjas de IA y soluciones de alta tecnología."
                 },
                 {
-                    "title": "Riqueza Exponencial",
-                    "desc": "Donde la creación de millonarios sea la regla para quienes se atrevan a crear e innovar."
+                    "title": "Creación de Valor Exponencial",
+                    "desc": "La Abundancia como el Nuevo Estándar. Empoderamos a una nueva generación de constructores y visionarios. En la economía Luxor, ser multimillonario y crear valor masivo es la regla, no la excepción."
                 }
             ]
         },
@@ -225,7 +305,7 @@
         "docs": "Documentación",
         "audit": "Auditoría",
         "tokenomics": "Tokenomics",
-        "buy": "Comprar",
+        "buy": "Join today",
         "chart": "Gráfica",
         "utility": "Utilidad",
         "project": "Proyecto",

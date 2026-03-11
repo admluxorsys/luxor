@@ -1,13 +1,20 @@
 'use client';
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 import { Globe, Cpu, Zap } from 'lucide-react';
 
 export function PillarsSection() {
     const t = useTranslations('HomePage');
     return (
-        <section className="py-24 px-4 bg-black border-t border-white/5">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16 max-w-3xl mx-auto">
+        <section className="py-32 md:py-48 px-4 md:px-8 bg-black border-t border-white/5">
+            <motion.div 
+                initial={{ opacity: 0, scale: 0.85, y: 40 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+                className="w-full max-w-[1800px] mx-auto"
+            >
+                <div className="text-center mb-24 md:mb-32 max-w-3xl mx-auto">
                     <h2 className="text-3xl lg:text-5xl font-medium font-sans text-white mb-6 tracking-tight">
                         {t('pillars.title')}
                     </h2>
@@ -29,7 +36,7 @@ export function PillarsSection() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }

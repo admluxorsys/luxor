@@ -1,0 +1,108 @@
+'use client';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { useState } from 'react';
+
+export function ShowcaseSection() {
+    const t = useTranslations('HomePage');
+    const [activeIdx, setActiveIdx] = useState(0);
+
+    const items = [
+        {
+            title: t('vital.items.0.title'),
+            desc: t('vital.items.0.desc'),
+            videoSrc: "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/anto.mp4?alt=media&token=c3f44782-2f93-4006-bf0d-25c86a6b32ec"
+        },
+        {
+            title: t('vital.items.1.title'),
+            desc: t('vital.items.1.desc'),
+            videoSrc: "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/ente.mp4?alt=media&token=9e649051-bf4e-44e4-af61-c0b6bac55c2c"
+        },
+        {
+            title: t('vital.items.2.title'),
+            desc: t('vital.items.2.desc'),
+            videoSrc: "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/into.mp4?alt=media&token=b7b792eb-2f97-47d9-8e0e-6b9ed36232ad"
+        }
+    ];
+
+    const nextSlide = () => setActiveIdx((prev) => (prev + 1) % items.length);
+    const prevSlide = () => setActiveIdx((prev) => (prev - 1 + items.length) % items.length);
+
+    return (
+        <section className="py-32 md:py-48 px-6 md:px-12 bg-black overflow-hidden border-t border-white/5">
+            <div className="max-w-[1600px] mx-auto">
+                {/* Header Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32 items-start">
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.05] max-w-xl"
+                    >
+                        {t('vital.title')}
+                    </motion.h2>
+                    <div className="flex justify-start lg:justify-end">
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-md lg:text-right font-light"
+                        >
+                            {t('vital.desc')}
+                        </motion.p>
+                    </div>
+                </div>
+
+                {/* Carousel Logic */}
+                <div className="relative">
+                    <div className="flex gap-8 transition-transform duration-700 ease-out" style={{ transform: `translateX(calc(-${activeIdx * 50}% - ${activeIdx * 16}px))` }}>
+                        {items.map((item, idx) => (
+                            <div key={idx} className="min-w-[85%] md:min-w-[48%] space-y-8 group">
+                                <div className="aspect-video w-full rounded-[40px] bg-black border border-white/10 overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                                    <video 
+                                        src={item.videoSrc}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/40 pointer-events-none" />
+                                </div>
+                                <div className={`space-y-4 px-2 transition-opacity duration-500 ${idx === activeIdx || idx === activeIdx + 1 ? 'opacity-100' : 'opacity-40'}`}>
+                                    <h3 className="text-sm font-medium text-white tracking-wide">{item.title}</h3>
+                                    <p className="text-[10px] md:text-[11px] text-zinc-500 max-w-xs leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Navigation Controls - Pill style */}
+                    <div className="flex justify-end mt-12 pr-4 md:pr-12">
+                         <div className="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1.5 gap-2">
+                            <button 
+                                onClick={prevSlide}
+                                className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/70 hover:text-white"
+                                aria-label="Previous slide"
+                            >
+                                <ChevronLeft size={18} />
+                            </button>
+                            <div className="w-px h-4 bg-white/10" />
+                            <button 
+                                onClick={nextSlide}
+                                className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/70 hover:text-white"
+                                aria-label="Next slide"
+                            >
+                                <ChevronRight size={18} />
+                            </button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}

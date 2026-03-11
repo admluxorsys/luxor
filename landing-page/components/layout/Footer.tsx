@@ -27,7 +27,7 @@ export default function Footer() {
             href: "https://x.com/luxor_lxr",
             name: "X"
         },
-        { icon: <Send size={18} />, href: "https://t.me/luxor_lxr", name: "Telegram" },
+        { icon: <Send size={18} />, href: "https://t.me/+HqmOhqYjNlJlYjBh", name: "Telegram" },
         {
             icon: (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

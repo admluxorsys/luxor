@@ -1,30 +1,29 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { Play } from 'lucide-react';
+import { InfoSection } from './InfoSection';
 
 export function InnovationSection() {
     const t = useTranslations('HomePage');
+    
+    const items = [
+        { title: t('innovation.items.0.title'), desc: t('innovation.items.0.desc') },
+        { title: t('innovation.items.1.title'), desc: t('innovation.items.1.desc') },
+        { title: t('innovation.items.2.title'), desc: t('innovation.items.2.desc') },
+        { title: t('innovation.items.3.title'), desc: t('innovation.items.3.desc') },
+    ];
+
     return (
-        <section className="py-24 px-4 bg-black border-t border-white/5">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-                <div className="flex-1 space-y-6">
-                    <h2 className="text-4xl lg:text-5xl font-medium font-sans text-white leading-tight tracking-tight">
-                        {t('innovation.title')}
-                    </h2>
-                    <p className="text-zinc-400 text-lg leading-relaxed">
-                        {t('innovation.desc')}
-                    </p>
-                    <button className="flex items-center gap-2 mt-4 px-6 py-3 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full text-white font-medium transition-all group">
-                        <Play size={16} className="text-blue-400 group-hover:scale-110 transition-transform" />
-                        {t('innovation.btn')}
-                    </button>
-                </div>
-                <div className="flex-1 w-full max-w-md mx-auto">
-                    <div className="w-full relative rounded-2xl overflow-hidden shadow-2xl border border-white/5">
-                        <img src="/images/coin.jpg" alt="Innovation" className="w-full h-auto object-contain" />
-                    </div>
-                </div>
-            </div>
-        </section>
+        <InfoSection 
+            title={t('innovation.title')}
+            subtitle={t('innovation.subtitle')}
+            description={t('innovation.desc')}
+            items={items}
+            imageSrc="/images/coin-new.jpg"
+            imageClassName="object-center"
+            showButton={true}
+            buttonText={t('innovation.btn')}
+            imageRight={true}
+            gradient="from-blue-600/30 via-purple-500/10 to-transparent"
+        />
     );
 }

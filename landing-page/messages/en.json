@@ -37,26 +37,81 @@
         },
         "eyebrow": "ECOSYSTEM ON SOLANA",
         "innovation": {
-            "title": "From Innovation to Shared Prosperity.",
-            "desc": "At Luxor, we don't just observe the future; we are building it by merging Latin American ingenuity with the greatest engine of innovation in history: the United States. Inspired by decades of discipline, economic freedom, and North American technological evolution, we believe the next logical step for humanity is not divisive competition, but the total integration of talents.",
+            "title": "What exactly is Luxor?",
+            "subtitle": "Luxor (LXR) is the native utility token of the Luxor ecosystem. It is not a passive asset; it is an active tool designed for those who create, undertake, and consume in the new digital economy.",
+            "desc": "By using LXR, you don't just own an asset on Solana; you get superpowers within our network:",
+            "items": [
+                {
+                    "title": "Exclusive Discounts",
+                    "desc": "Pay for business and personal administration services with direct benefits."
+                },
+                {
+                    "title": "Access to Experiences",
+                    "desc": "Your LXR balance is your ticket to events, advanced tools, and premium features of the ecosystem."
+                },
+                {
+                    "title": "Consumption Savings",
+                    "desc": "Get benefits in partner merchants, from coffee shops to technology, through our payment gateway."
+                },
+                {
+                    "title": "Active Governance",
+                    "desc": "Participate in the development of new functions. Your voice helps decide where the engine grows."
+                }
+            ],
             "btn": "Watch the film"
+        },
+        "philosophy": {
+            "title": "Our Philosophy: The Hemisphere of Abundance",
+            "subtitle": "Born in Salt Lake City, Luxor aligns with the innovation values of the Western tech corridor. We believe that abundance is not waited for, it is created.",
+            "items": [
+                {
+                    "title": "No Borders",
+                    "desc": "A tool for the entrepreneur in the United States, the professional in Latin America, and anyone in the American continent seeking to prosper."
+                },
+                {
+                    "title": "Support and Stability",
+                    "desc": "Built on Solana's ultra-fast infrastructure, Luxor integrates the efficiency of the digital dollar so that the global economy reaches every corner."
+                },
+                {
+                    "title": "For All Generations",
+                    "desc": "From digital natives to those seeking to modernize their century-old businesses. Luxor is easy, accessible, and universal."
+                }
+            ]
+        },
+        "architecture": {
+            "title": "Functional Architecture",
+            "subtitle": "Instead of highlighting scarcity, we highlight predictability for the user and commerce.",
+            "items": [
+                {
+                    "title": "Defined Network Capacity",
+                    "desc": "We have a fixed volume of units to ensure that the ecosystem always has the necessary fuel to operate without unexpected inflation."
+                },
+                {
+                    "title": "Programmed Autonomy",
+                    "desc": "LXR works under open-source rules on Solana. No central entity can change the rules of use, giving you total security."
+                },
+                {
+                    "title": "Circular Economy",
+                    "desc": "100% of the proceeds are used to strengthen the technical infrastructure and ensure that tools remain fast and economic."
+                }
+            ]
         },
         "vital": {
             "title": "Why is it vital to do this now?",
-            "desc": "The world is at an inflection point. Technology is no longer an option, it is the language of survival. For years, Latin America has possessed the talent and the will, but lacked the bridges to capital and cutting-edge infrastructure. Doing this now is urgent because:",
+            "desc": "The world is at an inflection point. Technology is no longer an option; it is the language of survival. While other regions fragment, the American Hemisphere stands as a beacon of untapped synergy. For years, the gap between capital and talent has limited our collective potential. Luxor is here to bridge that gap, creating a unified digital infrastructure from Salt Lake City to the farthest corners of the Americas.",
             "btn": "View models",
             "items": [
                 {
-                    "title": "Demographics is Destiny",
-                    "desc": "While other powers age, Latin America pulses with a youth hungry for knowledge and success. If we channel that energy into the US innovation model, we will create an unprecedented economic bloc."
+                    "title": "A Unified Economic Bloc",
+                    "desc": "Demographics is Destiny. While other global powers face aging populations and stagnation, the Americas pulse with a youthful, tech-native energy. By aligning the US innovation model with the talent of the entire hemisphere, we are not just building a network—we are building the most resilient and dynamic economic bloc on the planet."
                 },
                 {
-                    "title": "Global Security and Stability",
-                    "desc": "A prosperous hemisphere is a secure hemisphere. By bringing the 'American dream' of innovation to every corner of Latin America, we are eradicating the lack of opportunities that generates instability, replacing it with technological progress."
+                    "title": "Hemispheric Stability",
+                    "desc": "Security through Prosperity. A prosperous hemisphere is a secure hemisphere. Luxor facilitates the flow of utility and digital tools across borders, eradicating the lack of opportunity that generates instability. We are replacing borders with bridges, ensuring that the 'American Dream' of technological progress is a shared reality for everyone in our hemisphere."
                 },
                 {
                     "title": "The Era of Abundance",
-                    "desc": "With AI and robotics, we are moving from an economy of scarcity to one of abundance. Luxor ensures that Latin America is not left behind, but becomes the skilled workforce and creative mind behind the robots and algorithms of tomorrow."
+                    "desc": "Harnessing AI & Robotics. We are transitioning from an economy of scarcity to one of abundance. Luxor ensures the Americas don't just witness the AI revolution, but lead it. From Silicon Slopes to every city in the continent, we provide the liquidity engine for the skilled workforce and creative minds behind the algorithms of tomorrow."
                 }
             ]
         },
@@ -93,21 +148,46 @@
                 }
             ]
         },
+        "brackets": {
+            "builders": {
+                "badge": "Builders & Freelancers",
+                "title": "Elite Infrastructure",
+                "subtitle": "Your talent deserves an infrastructure at its level.",
+                "btn": "Start building"
+            },
+            "merchants": {
+                "badge": "Merchants & Corporations",
+                "title": "Global Market",
+                "subtitle": "Transform the way your company interacts with the global market.",
+                "btn": "Scale now"
+            },
+            "customers": {
+                "badge": "Global Customers",
+                "title": "Premium Access",
+                "subtitle": "Access to the abundance and premium treatment you deserve.",
+                "btn": "Join the elite"
+            }
+        },
+        "join": {
+            "title": "The future is not watched, it is built.",
+            "subtitle": "Join Luxor, because Luxor is you.",
+            "btn": "Join today"
+        },
         "pillars": {
-            "title": "The Pillars of Luxor: Our Fight",
-            "desc": "We envision a future defined by AI, advanced robotics, financial self-management, and an abundance of resources. Our mission is to provide the tools and knowledge that have kept certain economies paralyzed for decades. We fight for a world where:",
+            "title": "Our Vision for the Americas",
+            "desc": "We are building a future defined by AI, advanced robotics, and decentralized utility. Our mission is to dismantle the barriers that have kept economies fragmented for decades. We are the digital bridge for a hemisphere that creates, innovates, and leads.",
             "items": [
                 {
-                    "title": "The US is stronger than ever",
-                    "desc": "Strengthened by a strategic alliance with its own hemisphere, ensuring its global technological leadership."
+                    "title": "A Stronger, Unified North America",
+                    "desc": "Fortifying Global Leadership. By fostering a strategic technological alliance across the hemisphere, we ensure the U.S. remains the world's innovation engine, backed by a resilient and integrated supply chain of talent and digital assets."
                 },
                 {
-                    "title": "Latin America awakens",
-                    "desc": "Stopping being a raw materials exporter to become the largest exporter of innovation and software in the world."
+                    "title": "The Great American Awakening",
+                    "desc": "From Resources to Innovation. We are shifting the continent's focus from exporting raw materials to becoming the world's premier exporter of software, AI, and high-tech solutions. The entire hemisphere, from north to south, is the new frontier of the digital era."
                 },
                 {
-                    "title": "Exponential Wealth",
-                    "desc": "Where the creation of millionaires is the rule, not the exception, for those who dare to create and innovate."
+                    "title": "Exponential Value Creation",
+                    "desc": "Abundance as the New Standard. We empower a new generation of builders, entrepreneurs, and visionaries. In the Luxor economy, creating massive value is the rule, not the exception. We provide the tools for those who dare to build the infrastructure of tomorrow."
                 }
             ]
         },
@@ -225,7 +305,7 @@
         "docs": "Docs",
         "audit": "Audit",
         "tokenomics": "Tokenomics",
-        "buy": "Buy",
+        "buy": "Join today",
         "chart": "Chart",
         "utility": "Utility",
         "project": "Project",

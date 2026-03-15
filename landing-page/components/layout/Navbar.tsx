@@ -207,7 +207,7 @@ export default function Navbar() {
                                     <div className="flex items-center gap-2 px-4 h-full">
                                         <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                                         <span className="text-[10px] text-white/30 font-bold tracking-widest uppercase">LXR</span>
-                                        <span className="text-xs text-white font-sans font-bold">$0.0045</span>
+                                        <span className="text-xs text-white font-sans font-bold">$0.00025</span>
                                     </div>
                                     <div className="bg-blue-800 group-hover:bg-blue-900 text-white px-5 h-full flex items-center justify-center text-xs font-sans font-bold border-l border-white/10 transition-colors">
                                         {t('buy')}

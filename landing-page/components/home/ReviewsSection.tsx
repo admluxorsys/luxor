@@ -40,7 +40,7 @@ export function ReviewsSection() {
                     .animate-marquee-social {
                         display: flex;
                         width: max-content;
-                        animation: marqueeSocial 50s linear infinite;
+                        animation: marqueeSocial 80s linear infinite;
                     }
                     .group:hover .animate-marquee-social {
                         animation-play-state: paused;
@@ -51,7 +51,7 @@ export function ReviewsSection() {
                     {[...REVIEWS, ...REVIEWS, ...REVIEWS].map((review, idx) => (
                         <div 
                             key={idx}
-                            className="w-[260px] sm:w-[300px] md:w-[340px] shrink-0 bg-white border border-black/5 hover:border-black/10 transition-colors rounded-[24px] p-6 flex flex-col shadow-[0_16px_32px_-12px_rgba(0,0,0,0.1)] select-none"
+                            className="w-[320px] sm:w-[400px] md:w-[460px] shrink-0 bg-white border border-black/5 hover:border-black/10 transition-colors rounded-[24px] p-6 flex flex-col shadow-[0_16px_32px_-12px_rgba(0,0,0,0.1)] select-none"
                         >
                             {/* Header: Avatar + Meta */}
                             <div className="flex items-center gap-4 mb-4">

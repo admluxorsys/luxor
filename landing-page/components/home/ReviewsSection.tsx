@@ -46,10 +46,10 @@ export function ReviewsSection() {
                         animation-play-state: paused;
                     }
                 `}</style>
-                
+
                 <div className="animate-marquee-social flex gap-6 px-6 md:px-12">
                     {[...REVIEWS, ...REVIEWS, ...REVIEWS].map((review, idx) => (
-                        <div 
+                        <div
                             key={idx}
                             className="w-[320px] sm:w-[400px] md:w-[460px] shrink-0 bg-white border border-black/5 hover:border-black/10 transition-colors rounded-[24px] p-6 flex flex-col shadow-[0_16px_32px_-12px_rgba(0,0,0,0.1)] select-none"
                         >
@@ -59,7 +59,7 @@ export function ReviewsSection() {
                                     {review.initial}
                                 </div>
                                 <div>
-                                    <h3 className="text-black font-semibold text-sm">{review.name}</h3>
+                                    <h3 className="text-black font-semibold text-xs">{review.name}</h3>
                                     <div className="flex items-center gap-1.5 mt-0.5">
                                         <div className="flex gap-0.5">
                                             {[...Array(5)].map((_, i) => (
@@ -70,9 +70,9 @@ export function ReviewsSection() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* Body: Review Text */}
-                            <p className="text-zinc-700 leading-relaxed text-[13px]">
+                            <p className="text-zinc-700 leading-relaxed text-[11px]">
                                 "{review.text}"
                             </p>
                         </div>

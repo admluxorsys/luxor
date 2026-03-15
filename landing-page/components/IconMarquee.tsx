@@ -82,7 +82,9 @@ export const IconMarquee = () => {
             <motion.div
               key={`icon-${idx}`}
               className="flex-shrink-0"
-              animate={{ y: [50, -50, 50] }}
+              animate={{ 
+                y: [typeof window !== 'undefined' && window.innerWidth < 768 ? 20 : 50, typeof window !== 'undefined' && window.innerWidth < 768 ? -20 : -50, typeof window !== 'undefined' && window.innerWidth < 768 ? 20 : 50] 
+              }}
               transition={{
                 duration: verticalDuration,
                 repeat: Infinity,

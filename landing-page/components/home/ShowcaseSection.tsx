@@ -33,12 +33,12 @@ export function ShowcaseSection() {
         <section className="py-32 md:py-48 px-6 md:px-12 bg-black overflow-hidden border-t border-white/5">
             <div className="max-w-[1600px] mx-auto">
                 {/* Header Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 md:mb-32 items-start">
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.05] max-w-xl"
+                        className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.05] max-w-xl"
                     >
                         {t('vital.title')}
                     </motion.h2>
@@ -48,7 +48,7 @@ export function ShowcaseSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-md lg:text-right font-light"
+                            className="text-zinc-500 text-base md:text-base leading-relaxed max-w-md lg:text-right font-light"
                         >
                             {t('vital.desc')}
                         </motion.p>

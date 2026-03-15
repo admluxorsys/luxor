@@ -328,8 +328,28 @@ export default function Navbar() {
                     >
                         <div className="flex flex-col gap-8">
                             {/* Simple Mobile Links */}
-                            <div className="flex flex-col gap-4">
-                                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white">{t('home')}</Link>
+                            <div className="flex flex-col gap-8 pb-10">
+                                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-white tracking-tight">{t('home')}</Link>
+                                
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex items-center justify-between bg-white/5 border border-white/10 rounded-2xl p-4">
+                                        <div className="flex items-center gap-3">
+                                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                             <span className="text-xs text-white/40 font-bold uppercase tracking-widest">LXR Price</span>
+                                        </div>
+                                        <span className="text-lg font-bold text-white font-sans">$0.00025</span>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-3">
+                                    <a href="https://t.me/+HqmOhqYjNlJlYjBh" target="_blank" className="flex items-center justify-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-xl py-3 text-blue-400 text-sm font-bold">
+                                        <Send size={16} /> Telegram
+                                    </a>
+                                    <a href="https://x.com/luxor_lxr" target="_blank" className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-xl py-3 text-white text-sm font-bold">
+                                        X.com
+                                    </a>
+                                </div>
+
                                 <div className="h-[1px] bg-white/10 my-2" />
 
                                 {[
@@ -342,39 +362,40 @@ export default function Navbar() {
                                     { id: 'onchain', label: t('onchain') },
                                 ].map((cat) => (
                                     <React.Fragment key={cat.id}>
-                                        <h3 className="text-white/40 text-[10px] uppercase font-bold tracking-widest mt-4">{cat.label}</h3>
-                                        <div className="flex flex-col gap-2 mt-2">
-                                            {megaMenus[cat.id].map((item, idx) => (
+                                        <h3 className="text-white/30 text-[11px] uppercase font-bold tracking-widest mt-4 pl-1">{cat.label}</h3>
+                                        <div className="grid grid-cols-2 gap-3 mt-3">
+                                            {megaMenus[cat.id].slice(0, 4).map((item, idx) => (
                                                 <a
                                                     key={idx}
                                                     href={item.href}
                                                     onClick={() => setMobileMenuOpen(false)}
-                                                    className="text-base text-white/70 hover:text-white font-medium"
+                                                    className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 hover:text-white font-medium"
                                                 >
-                                                    {item.title}
+                                                    <span className="text-[12px] font-bold text-white">{item.title}</span>
+                                                    <span className="text-[9px] text-white/30 truncate">{item.desc}</span>
                                                 </a>
                                             ))}
-                                            <Link
-                                                href="/coming-soon"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                                className="text-[#2563EB] text-[10px] font-bold uppercase tracking-widest mt-2 flex items-center gap-2"
-                                            >
-                                                {t('view_more')}
-                                                <ExternalLink size={10} />
-                                            </Link>
                                         </div>
                                     </React.Fragment>
                                 ))}
                             </div>
 
-                            <div className="flex flex-col gap-6 mt-4">
-                                <LanguageSwitcher />
-                                <a
-                                    href="https://jup.ag"
-                                    className="bg-blue-800 text-white rounded-full h-12 flex items-center justify-center font-bold"
-                                >
-                                    {t('buy')}
-                                </a>
+                            <div className="flex flex-col gap-4 mt-4 sticky bottom-0 bg-black pt-4 border-t border-white/10">
+                                <div className="flex justify-between items-center px-2">
+                                    <span className="text-xs text-white/40 font-bold uppercase tracking-widest">Settings</span>
+                                    <LanguageSwitcher />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <a
+                                        href="https://jup.ag"
+                                        className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl h-14 flex items-center justify-center font-bold text-base shadow-xl shadow-blue-600/20 transition-all"
+                                    >
+                                        {t('buy')} LXR
+                                    </a>
+                                    <div className="h-14 overflow-hidden rounded-2xl">
+                                         <WalletMultiButton>Connect</WalletMultiButton>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

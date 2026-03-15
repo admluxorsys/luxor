@@ -54,7 +54,8 @@ const iconList = [
 export const IconMarquee = () => {
   const [mounted, setMounted] = useState(false);
   const horizontalDuration = 100; // Controla la lentitud horizontal (más alto = más lento)
-  const verticalDuration = 6;    // Controla la lentitud de la ondulación (más alto = más lento)
+  const verticalDuration = 8;    
+  const delayStep = verticalDuration / iconList.length;
 
   useEffect(() => {
     setMounted(true);
@@ -81,12 +82,12 @@ export const IconMarquee = () => {
             <motion.div
               key={`icon-${idx}`}
               className="flex-shrink-0"
-              animate={{ y: [40, -40, 40] }}
+              animate={{ y: [50, -50, 50] }}
               transition={{
                 duration: verticalDuration,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: (idx % iconList.length) * 0.1 
+                delay: (idx % iconList.length) * -delayStep
               }}
             >
               <div className="group relative">

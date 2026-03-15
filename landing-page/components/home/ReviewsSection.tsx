@@ -71,8 +71,8 @@ export function ReviewsSection() {
     };
 
     return (
-        <section className="py-32 md:py-48 px-6 md:px-12 bg-black border-t border-white/5 relative">
-            <div className="w-full max-w-[1800px] mx-auto">
+        <section className="py-32 md:py-48 bg-black border-t border-white/5 relative overflow-hidden">
+            <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 md:mb-24 gap-6">
                     <div>
                         <h2 className="text-2xl lg:text-4xl font-medium font-sans text-white mb-3 tracking-tight">
@@ -82,35 +82,34 @@ export function ReviewsSection() {
                             See what the earliest adopters and partners are saying about the ecosystem.
                         </p>
                     </div>
-
-                    {/* Botones de navegación eliminados por Marquesina Infinita */}
                 </div>
+            </div>
 
-                <div className="overflow-hidden w-full relative">
-                    <style suppressHydrationWarning>{`
-                        .no-scrollbar::-webkit-scrollbar {
-                            display: none;
-                        }
-                    `}</style>
-                    <div 
-                        ref={scrollRef}
-                        onPointerDown={handlePointerDown}
-                        onPointerMove={handlePointerMove}
-                        onPointerUp={handlePointerUp}
-                        onPointerEnter={handlePointerEnter}
-                        onPointerLeave={handlePointerLeave}
-                        className="flex gap-6 w-full overflow-x-auto pb-8 no-scrollbar touch-pan-x cursor-grab"
-                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                    >
-                        {[...REVIEWS, ...REVIEWS, ...REVIEWS].map((review, idx) => (
-                            <div 
-                                key={idx}
-                                className="w-[260px] sm:w-[300px] md:w-[340px] shrink-0 bg-white border border-black/5 hover:border-black/10 transition-colors rounded-[24px] p-6 flex flex-col shadow-[0_16px_32px_-12px_rgba(0,0,0,0.1)] select-none"
-                            >
-                                {/* Header: Avatar + Meta */}
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-medium text-base ${review.color} shadow-inner`}>
-                                        {review.initial}
+            <div className="w-full relative">
+                <style suppressHydrationWarning>{`
+                    .no-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                `}</style>
+                <div 
+                    ref={scrollRef}
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={handlePointerUp}
+                    onPointerEnter={handlePointerEnter}
+                    onPointerLeave={handlePointerLeave}
+                    className="flex gap-6 w-full overflow-x-auto pb-8 no-scrollbar touch-pan-x cursor-grab px-6 md:px-12"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                    {[...REVIEWS, ...REVIEWS, ...REVIEWS].map((review, idx) => (
+                        <div 
+                            key={idx}
+                            className="w-[260px] sm:w-[300px] md:w-[340px] shrink-0 bg-white border border-black/5 hover:border-black/10 transition-colors rounded-[24px] p-6 flex flex-col shadow-[0_16px_32px_-12px_rgba(0,0,0,0.1)] select-none"
+                        >
+                            {/* Header: Avatar + Meta */}
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-medium text-base ${review.color} shadow-inner`}>
+                                    {review.initial}
                                     </div>
                                     <div>
                                         <h3 className="text-black font-semibold text-sm">{review.name}</h3>
@@ -133,7 +132,6 @@ export function ReviewsSection() {
                         ))}
                     </div>
                 </div>
-            </div>
         </section>
     );
 }

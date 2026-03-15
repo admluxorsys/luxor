@@ -16,60 +16,6 @@ const REVIEWS = [
 ];
 
 export function ReviewsSection() {
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const isDragging = useRef(false);
-    const isHovered = useRef(false);
-    const startX = useRef(0);
-    const scrollLeftData = useRef(0);
-    const rafRef = useRef<number>(0);
-
-    useEffect(() => {
-        const animate = () => {
-            if (!isDragging.current && !isHovered.current && scrollRef.current) {
-                scrollRef.current.scrollLeft += 0.5; // Velocidad muy lenta
-                
-                // Bucle infinito: si scrolled más de la mitad, reiniciar
-                if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
-                    scrollRef.current.scrollLeft -= scrollRef.current.scrollWidth / 2;
-                }
-            }
-            rafRef.current = requestAnimationFrame(animate);
-        };
-        rafRef.current = requestAnimationFrame(animate);
-        return () => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-        };
-    }, []);
-
-    const handlePointerDown = (e: React.PointerEvent) => {
-        isDragging.current = true;
-        startX.current = e.pageX - (scrollRef.current?.offsetLeft || 0);
-        scrollLeftData.current = scrollRef.current?.scrollLeft || 0;
-        if (scrollRef.current) scrollRef.current.style.cursor = 'grabbing';
-    };
-
-    const handlePointerMove = (e: React.PointerEvent) => {
-        if (!isDragging.current || !scrollRef.current) return;
-        e.preventDefault();
-        const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX.current) * 1.5; // Sensibilidad de arrastre
-        scrollRef.current.scrollLeft = scrollLeftData.current - walk;
-    };
-
-    const handlePointerUp = () => {
-        isDragging.current = false;
-        if (scrollRef.current) scrollRef.current.style.cursor = 'grab';
-    };
-
-    const handlePointerEnter = () => {
-        isHovered.current = true;
-    };
-
-    const handlePointerLeave = () => {
-        isHovered.current = false;
-        handlePointerUp(); // Termina cualquier arrastre si el ratón sale
-    };
-
     return (
         <section className="py-32 md:py-48 bg-black border-t border-white/5 relative overflow-hidden">
             <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12">
@@ -85,22 +31,23 @@ export function ReviewsSection() {
                 </div>
             </div>
 
-            <div className="w-full relative">
+            <div className="w-full relative group">
                 <style suppressHydrationWarning>{`
-                    .no-scrollbar::-webkit-scrollbar {
-                        display: none;
+                    @keyframes marqueeSocial {
+                        0% { transform: translateX(0); }
+                        100% { transform: translateX(-33.33%); }
+                    }
+                    .animate-marquee-social {
+                        display: flex;
+                        width: max-content;
+                        animation: marqueeSocial 50s linear infinite;
+                    }
+                    .group:hover .animate-marquee-social {
+                        animation-play-state: paused;
                     }
                 `}</style>
-                <div 
-                    ref={scrollRef}
-                    onPointerDown={handlePointerDown}
-                    onPointerMove={handlePointerMove}
-                    onPointerUp={handlePointerUp}
-                    onPointerEnter={handlePointerEnter}
-                    onPointerLeave={handlePointerLeave}
-                    className="flex gap-6 w-full overflow-x-auto pb-8 no-scrollbar touch-pan-x cursor-grab px-6 md:px-12"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                >
+                
+                <div className="animate-marquee-social flex gap-6 px-6 md:px-12">
                     {[...REVIEWS, ...REVIEWS, ...REVIEWS].map((review, idx) => (
                         <div 
                             key={idx}
@@ -110,28 +57,28 @@ export function ReviewsSection() {
                             <div className="flex items-center gap-4 mb-4">
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-medium text-base ${review.color} shadow-inner`}>
                                     {review.initial}
-                                    </div>
-                                    <div>
-                                        <h3 className="text-black font-semibold text-sm">{review.name}</h3>
-                                        <div className="flex items-center gap-1.5 mt-0.5">
-                                            <div className="flex gap-0.5">
-                                                {[...Array(5)].map((_, i) => (
-                                                    <Star key={i} size={12} className="fill-yellow-500 text-yellow-500" />
-                                                ))}
-                                            </div>
-                                            <span className="text-zinc-500 text-[11px]">{review.time}</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-black font-semibold text-sm">{review.name}</h3>
+                                    <div className="flex items-center gap-1.5 mt-0.5">
+                                        <div className="flex gap-0.5">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star key={i} size={12} className="fill-yellow-500 text-yellow-500" />
+                                            ))}
                                         </div>
+                                        <span className="text-zinc-500 text-[11px]">{review.time}</span>
                                     </div>
                                 </div>
-                                
-                                {/* Body: Review Text */}
-                                <p className="text-zinc-700 leading-relaxed text-[13px]">
-                                    "{review.text}"
-                                </p>
                             </div>
-                        ))}
-                    </div>
+                            
+                            {/* Body: Review Text */}
+                            <p className="text-zinc-700 leading-relaxed text-[13px]">
+                                "{review.text}"
+                            </p>
+                        </div>
+                    ))}
                 </div>
+            </div>
         </section>
     );
 }

@@ -14,7 +14,7 @@ interface HeroProps {
 }
 
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
-    const videoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/Final.mp4?alt=media&token=7abba781-5d82-4c0f-8dac-d39125d2e67e";
+    const videoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
 
     return (
         <section className="relative min-h-[105vh] w-full flex items-end justify-start overflow-hidden bg-black pb-44 px-6 md:px-16 lg:px-24">
@@ -25,7 +25,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-cover scale-100"
+                    className="w-full h-full object-cover grayscale-[0.2] brightness-75"
                     src={videoUrl}
                 />
                 {/* Subtle fade transiton to black */}

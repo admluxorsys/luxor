@@ -24,7 +24,7 @@ export default function CommunityPage() {
                         icon={<Send size={40} />}
                         name="Telegram"
                         desc="Chat with the community and team."
-                        link="#"
+                        link="https://t.me/+HqmOhqYjNlJlYjBh"
                         color="hover:text-blue-300"
                     />
                     <SocialCard

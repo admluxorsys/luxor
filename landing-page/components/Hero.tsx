@@ -17,9 +17,9 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
     const videoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
 
     return (
-        <section className="relative min-h-[100vh] md:min-h-[105vh] w-full flex items-end justify-start overflow-hidden bg-black pb-32 md:pb-44 px-6 md:px-16 lg:px-24">
-            {/* 1. Video Layer - Pinned to Top */}
-            <div className="absolute top-0 left-0 w-full h-[70vh] md:h-[75vh] z-0 overflow-hidden">
+        <section className="relative w-full flex flex-col md:min-h-[105vh] md:justify-end items-start overflow-hidden bg-black">
+            {/* 1. Video Layer */}
+            <div className="relative md:absolute md:top-0 md:left-0 w-full h-[60vh] md:h-[75vh] z-0 overflow-hidden">
                 <video
                     autoPlay
                     muted
@@ -32,8 +32,8 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                 <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black via-black/80 to-transparent" />
             </div>
 
-            {/* 2. Content Layer - Positioned to overlap video and black background */}
-            <div className="relative z-10 w-full max-w-5xl">
+            {/* 2. Content Layer */}
+            <div className="relative z-10 w-full max-w-5xl px-6 pt-10 pb-24 md:pb-44 md:px-16 lg:px-24">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -51,7 +51,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     </motion.span>
 
                     {/* Main Title - Scaled for impact on mobile */}
-                    <h1 className="text-3xl md:text-4xl lg:text-[42px] font-medium text-white mb-6 md:mb-5 tracking-tight leading-[1.1] font-sans whitespace-pre-line">
+                    <h1 className="text-4xl md:text-4xl lg:text-[42px] font-medium text-white mb-6 md:mb-5 tracking-tight leading-[1.1] font-sans whitespace-pre-line">
                         {title}
                     </h1>
 

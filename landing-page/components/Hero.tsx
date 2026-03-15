@@ -15,42 +15,17 @@ interface HeroProps {
 
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
     const videoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/Final.mp4?alt=media&token=7abba781-5d82-4c0f-8dac-d39125d2e67e";
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [isPaused, setIsPaused] = useState(false);
-
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        const handleEnded = () => {
-            setIsPaused(true);
-            // When video ends, wait 10 seconds then restart
-            setTimeout(() => {
-                if (video) {
-                    setIsPaused(false);
-                    video.currentTime = 0;
-                    video.play();
-                }
-            }, 10000); // 10 seconds delay
-        };
-
-        video.addEventListener('ended', handleEnded);
-        return () => video.removeEventListener('ended', handleEnded);
-    }, []);
 
     return (
         <section className="relative min-h-[105vh] w-full flex items-end justify-start overflow-hidden bg-black pb-44 px-6 md:px-16 lg:px-24">
             {/* 1. Video Layer - Pinned to Top */}
             <div className="absolute top-0 left-0 w-full h-[75vh] z-0 overflow-hidden">
                 <video
-                    ref={videoRef}
                     autoPlay
                     muted
+                    loop
                     playsInline
-                    className={`w-full h-full object-cover ${isPaused
-                        ? 'transition-transform duration-[10000ms] ease-out scale-105'
-                        : 'scale-100'
-                        }`}
+                    className="w-full h-full object-cover scale-100"
                     src={videoUrl}
                 />
                 {/* Subtle fade transiton to black */}

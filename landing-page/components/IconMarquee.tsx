@@ -68,8 +68,8 @@ export const IconMarquee = () => {
     <section className="w-full bg-black py-40 overflow-hidden relative">
       <div className="flex w-full items-center">
         <motion.div
-          key={horizontalDuration} // Esto fuerza a que se reinicie la animación si cambias el valor
-          className="flex whitespace-nowrap gap-6 md:gap-8 items-center"
+          key={horizontalDuration}
+          className="flex whitespace-nowrap gap-6 md:gap-8 items-center will-change-transform"
           animate={{ x: [0, "-50%"] }}
           transition={{
             duration: horizontalDuration,
@@ -77,26 +77,21 @@ export const IconMarquee = () => {
             ease: "linear"
           }}
         >
-          {/* Duplicamos la lista para un efecto infinito fluido */}
-          {[...iconList, ...iconList, ...iconList, ...iconList].map((Icon, idx) => (
+          {[...iconList, ...iconList].map((Icon, idx) => (
             <motion.div
               key={`icon-${idx}`}
               className="flex-shrink-0"
-              animate={{
-                y: [50, -50, 50] // Amplitud de la serpiente
-              }}
+              animate={{ y: [10, -10, 10] }}
               transition={{
                 duration: verticalDuration,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: idx * 0.2 // Espaciado de la onda
+                delay: (idx % iconList.length) * 0.1 
               }}
             >
               <div className="group relative">
-                <div className="absolute inset-0 rounded-full bg-blue-500/0 group-hover:bg-blue-500/10 blur-2xl transition-all duration-700" />
-
-                <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md transition-all duration-700 group-hover:scale-110 group-hover:border-white/40 group-hover:bg-white/10 shadow-2xl">
-                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-white/40 group-hover:text-white transition-colors duration-500" />
+                <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:bg-white/10 shadow-xl">
+                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-white/40 group-hover:text-white transition-colors duration-300" />
                 </div>
               </div>
             </motion.div>

@@ -57,21 +57,26 @@ export function ShowcaseSection() {
 
                 {/* Carousel Logic */}
                 <div className="relative">
-                    <div className="flex gap-8 transition-transform duration-700 ease-out" style={{ transform: `translateX(calc(-${activeIdx * 50}% - ${activeIdx * 16}px))` }}>
+                    <div className="flex gap-8 transition-transform duration-700 ease-out" style={{ transform: `translateX(calc(-${activeIdx * (typeof window !== 'undefined' && window.innerWidth < 768 ? 85 : 50)}% - ${activeIdx * 16}px))` }}>
                         {items.map((item, idx) => (
                             <div key={idx} className="min-w-[85%] md:min-w-[48%] space-y-8 group">
                                 <div className="aspect-video w-full rounded-[40px] bg-black border border-white/10 overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                                     <video 
                                         src={item.videoSrc}
-                                        autoPlay
+                                        autoPlay={idx === activeIdx}
                                         loop
                                         muted
                                         playsInline
+                                        preload="metadata"
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        onMouseEnter={(e) => e.currentTarget.play()}
+                                        onMouseLeave={(e) => {
+                                            if (idx !== activeIdx) e.currentTarget.pause();
+                                        }}
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/40 pointer-events-none" />
                                 </div>
-                                <div className={`space-y-4 px-2 transition-opacity duration-500 ${idx === activeIdx || idx === activeIdx + 1 ? 'opacity-100' : 'opacity-40'}`}>
+                                <div className={`space-y-4 px-2 transition-opacity duration-500 ${idx === activeIdx ? 'opacity-100' : 'opacity-40'}`}>
                                     <h3 className="text-sm font-medium text-white tracking-wide">{item.title}</h3>
                                     <p className="text-[10px] md:text-[11px] text-zinc-500 max-w-xs leading-relaxed">
                                         {item.desc}

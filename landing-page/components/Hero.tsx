@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 import { useRef, useEffect, useState } from 'react';
 
 interface HeroProps {
@@ -14,6 +15,9 @@ interface HeroProps {
 }
 
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
+    const locale = useLocale();
+    const badgeText = locale === 'es' ? 'Lanzamiento Oficial' : 'Launching';
+
     const bgVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
     const presaleVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/Video%20Preventa.mp4?alt=media&token=96330534-69e6-47e3-8359-444f9c1f85a5";
 
@@ -137,10 +141,10 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
 
                         {/* Countdown Information */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-20">
-                            {/* Internal Presale Badge */}
+                            {/* Card Status Badge */}
                             <div className="px-4 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md mb-4 inline-flex items-center gap-2 group-hover:border-white/30 transition-colors">
                                <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
-                               <span className="text-[10px] uppercase tracking-widest font-bold text-blue-100">Internal Presale</span>
+                               <span className="text-[10px] uppercase tracking-widest font-bold text-blue-100">{badgeText}</span>
                             </div>
                             
                             {isMounted ? (

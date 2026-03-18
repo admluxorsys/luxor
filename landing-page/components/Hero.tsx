@@ -14,11 +14,39 @@ interface HeroProps {
 }
 
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
-    const videoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
+    const bgVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
+    const presaleVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/Video%20Preventa.mp4?alt=media&token=96330534-69e6-47e3-8359-444f9c1f85a5";
+
+    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        const targetDate = new Date('2026-05-01T00:00:00-06:00').getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                setTimeLeft({ days, hours, minutes, seconds });
+            } else {
+                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+            }
+        };
+
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <section className="relative w-full flex flex-col md:min-h-[105vh] md:justify-end items-start overflow-hidden bg-black">
-            {/* 1. Video Layer */}
+            {/* 1. Main Background Video Layer */}
             <div className="relative md:absolute md:top-0 md:left-0 w-full h-[60vh] md:h-[75vh] z-0 overflow-hidden">
                 <video
                     autoPlay
@@ -26,19 +54,21 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     loop
                     playsInline
                     className="w-full h-full object-cover grayscale-[0.2] brightness-75 scale-110 md:scale-100"
-                    src={videoUrl}
+                    src={bgVideoUrl}
                 />
-                {/* Subtle fade transiton to black */}
+                {/* Subtle fade transition to black */}
                 <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black via-black/80 to-transparent" />
             </div>
 
-            {/* 2. Content Layer */}
-            <div className="relative z-10 w-full max-w-5xl px-6 pt-10 pb-24 md:pb-44 md:px-16 lg:px-24">
+            {/* 2. Content Layer Container */}
+            <div className="relative z-10 w-full px-6 pt-10 pb-24 md:pb-44 md:px-16 lg:px-24 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
+                
+                {/* Original Text Layer */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="flex flex-col items-start text-left"
+                    className="flex flex-col items-start text-left max-w-3xl"
                 >
                     {/* Eyebrow - Even smaller */}
                     <motion.span
@@ -81,9 +111,89 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                         </Link>
                     </div>
                 </motion.div>
+
+                {/* NEW Added Video/Countdown Component Layer */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+                    className="w-full max-w-sm lg:max-w-md mt-10 lg:mt-0"
+                >
+                    <Link 
+                        href="#" 
+                        className="relative block w-full aspect-video rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:scale-[1.02] hover:shadow-white/30 hover:border-white/50 transition-all duration-300"
+                    >
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="absolute inset-0 w-full h-full object-cover"
+                            src={presaleVideoUrl}
+                        />
+                        
+                        {/* Overlay Filter for legibility */}
+                        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] group-hover:bg-black/50 transition-colors" />
+
+                        {/* Countdown Information */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-20">
+                            {/* Internal Presale Badge */}
+                            <div className="px-4 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md mb-4 inline-flex items-center gap-2 group-hover:border-white/30 transition-colors">
+                               <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
+                               <span className="text-[10px] uppercase tracking-widest font-bold text-blue-100">Internal Presale</span>
+                            </div>
+                            
+                            {isMounted ? (
+                                <div className="flex items-center gap-3 lg:gap-4 group-hover:drop-shadow-2xl transition-all">
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.days}</span>
+                                        <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Days</span>
+                                    </div>
+                                    <div className="text-xl lg:text-3xl mb-5 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.hours}</span>
+                                        <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Hours</span>
+                                    </div>
+                                    <div className="text-xl lg:text-3xl mb-5 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.minutes}</span>
+                                        <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Mins</span>
+                                    </div>
+                                    <div className="text-xl lg:text-3xl mb-5 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.seconds}</span>
+                                        <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Secs</span>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="flex items-center gap-4 opacity-0">
+                                    {/* Placeholder */}
+                                    <div className="flex flex-col items-center min-w-[60px]">
+                                        <span className="text-4xl lg:text-5xl font-bold font-sans tracking-tighter">0</span>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Mountain Time Indicator */}
+                            <div className="mt-4 mb-2 text-[7px] md:text-[8px] text-white/40 uppercase tracking-[0.3em] font-semibold text-center">
+                                Ends 12:00 AM Mountain Time (USA)
+                            </div>
+
+                            {/* Additional Info / Links */}
+                            <div className="mt-4 md:mt-5 flex flex-col items-center justify-center gap-1 opacity-90 group-hover:opacity-100 transition-opacity">
+                                <span className="text-[10px] md:text-[11px] font-medium text-white/90 drop-shadow-md tracking-wide">
+                                    Luxor <span className="text-white/40 mx-1">|</span> LXR Meteora
+                                </span>
+                                <span className="text-[10px] md:text-[11px] font-medium text-white/90 drop-shadow-md tracking-wide">
+                                    Luxor Origin <span className="text-white/40 mx-1">|</span> LUX Pump.fun
+                                </span>
+                            </div>
+                        </div>
+                    </Link>
+                </motion.div>
             </div>
 
-            {/* Subtle bottom scroll indicator moved to the side or kept central but minimal */}
+            {/* Subtle bottom scroll indicator (Original) */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

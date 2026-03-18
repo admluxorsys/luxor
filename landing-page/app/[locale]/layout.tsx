@@ -19,10 +19,26 @@ const outfit = Outfit({
   variable: '--font-outfit',
 });
 
-export const metadata = {
-  title: 'Luxor Economy',
-  description: 'Building the future of LATAM and US integration on the blockchain.',
-};
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+    }
+  };
+}
 
 export default async function LocaleLayout({
   children,

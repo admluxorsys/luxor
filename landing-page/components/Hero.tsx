@@ -16,7 +16,7 @@ interface HeroProps {
 
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
     const locale = useLocale();
-    const badgeText = locale === 'es' ? 'Lanzamiento Oficial' : 'Launching';
+    const badgeText = locale === 'es' ? 'Lanzamiento Oficial' : 'Official Launch';
 
     const bgVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
     const presaleVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/Video%20Preventa.mp4?alt=media&token=96330534-69e6-47e3-8359-444f9c1f85a5";

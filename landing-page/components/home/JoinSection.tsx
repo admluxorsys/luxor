@@ -25,9 +25,10 @@ export function JoinSection() {
                     
                     <div className="pt-10">
                         <motion.button
+                            onClick={() => window.open("https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth", "_blank")}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-white text-black px-12 py-4 rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors tracking-wide"
+                            className="bg-white text-black px-12 py-4 rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors tracking-wide cursor-pointer"
                         >
                             {t('join.btn')}
                         </motion.button>

@@ -22,7 +22,10 @@ export function CTASection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <button className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-zinc-200 transition-colors w-full sm:w-auto">
+                    <button 
+                        onClick={() => window.open("https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth", "_blank")}
+                        className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-zinc-200 transition-colors w-full sm:w-auto text-center cursor-pointer"
+                    >
                         {t('cta.btn_join')}
                     </button>
                     <a 

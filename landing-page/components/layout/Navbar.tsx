@@ -199,7 +199,7 @@ export default function Navbar() {
                             <div className="flex items-center gap-2">
                                 {/* Combined Price + Buy Button */}
                                 <a
-                                    href="https://jup.ag"
+                                    href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center bg-white/5 border border-white/10 rounded-full h-9 hover:bg-white/10 hover:border-white/20 transition-all group overflow-hidden"
@@ -387,7 +387,7 @@ export default function Navbar() {
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <a
-                                        href="https://jup.ag"
+                                        href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
                                         className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl h-14 flex items-center justify-center font-bold text-base shadow-xl shadow-blue-600/20 transition-all"
                                     >
                                         {t('buy')} LXR

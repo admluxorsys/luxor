@@ -2,14 +2,15 @@
 
 import React from 'react';
 import { Link } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import {
     Send,
     Github,
     Globe,
     FileText,
     Layers,
-    Search
+    Search,
+    Heart
 } from 'lucide-react';
 
 export default function Footer() {
@@ -34,12 +35,12 @@ export default function Footer() {
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.862-1.295 1.196-1.995a.076.076 0 0 0-.041-.105 13.11 13.11 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.420 0 1.333-.946 2.418-2.157 2.418z" />
                 </svg>
             ),
-            href: "https://discord.gg/qC456dPg",
+            href: "https://discord.gg/pFgcmV45yn",
             name: "Discord"
         },
         { icon: <Github size={20} />, href: "https://github.com/admluxorsys/luxor", name: "GitHub" },
         { icon: <FileText size={18} />, href: "https://github.com/admluxorsys/luxor/blob/main/Whitepaper.md", name: t('docs') },
-        { icon: <Layers size={18} />, href: "http://stake.lxr-network.com/", name: t('mega.util_title_1') },
+        { icon: <Layers size={18} />, href: "https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth", name: "Phantom Token" },
         { icon: <Search size={18} />, href: "https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth", name: "Solscan" },
     ];
 
@@ -83,8 +84,8 @@ export default function Footer() {
             title: tf('col_biz_title'),
             links: [
                 { name: tf('link_integra'), href: '/coming-soon' },
-                { name: t('business'), href: '#' },
-                { name: tf('accepted_in'), href: '#' },
+                { name: tf('link_autonomous'), href: '/coming-soon' },
+                { name: tf('link_glasses'), href: '/coming-soon' },
             ]
         },
         {
@@ -105,6 +106,14 @@ export default function Footer() {
                 { name: "Solscan", href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth' },
                 { name: "Dial.to (Blinks)", href: 'https://dial.to/?action=solana-action:https://jup.ag/swap/SOL-7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth' },
                 { name: "Orb (Holders)", href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth/token-holders?page=1&pageSize=10' },
+            ]
+        },
+        {
+            title: "Contact",
+            links: [
+                { name: 'services@byluxor.com', href: 'mailto:services@byluxor.com' },
+                { name: '+13859779375', href: 'tel:+13859779375' },
+                { name: '170 S W Temple St, Salt Lake City, UT 84101', href: 'https://maps.google.com/?q=170+S+W+Temple+St,+Salt+Lake+City,+UT+84101', target: '_blank' },
             ]
         }
     ];
@@ -179,6 +188,7 @@ export default function Footer() {
                                                 <li key={lIdx}>
                                                     <Link
                                                         href={link.href}
+                                                        target={(link as any).target}
                                                         className={`${isHighlight
                                                             ? "text-[#2563EB] hover:text-[#3B82F6] font-bold"
                                                             : "text-white/60 hover:text-white"
@@ -216,9 +226,9 @@ export default function Footer() {
                         <img
                             src="/assets/icons/esfera.png"
                             alt="Luxor Logo"
-                            className="w-10 h-10 object-contain brightness-125 filter group-hover:rotate-12 transition-transform duration-500"
+                            className="w-8 h-8 object-contain brightness-125 filter group-hover:rotate-12 transition-transform duration-500"
                         />
-                        <span className="text-2xl font-sans font-medium tracking-tighter">{tc('luxor_economy')}</span>
+                        <span className="text-lg font-sans font-medium tracking-tighter">{tc('luxor_economy')}</span>
                     </div>
 
                     {/* Secondary Navigation */}
@@ -227,13 +237,30 @@ export default function Footer() {
                         <Link href="/products" className="hover:text-white transition-colors">{t('ecosystem')}</Link>
                         <Link href="/privacy" className="hover:text-white transition-colors">{tf('privacy')}</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">{tf('terms')}</Link>
-                        <span className="md:ml-4">© 2026 Luxor. {tf('copyright')}</span>
+                        <span className="md:ml-4 flex items-center gap-1">
+                            © 2026 Luxor {tf('copyright')} <Heart className="w-3 h-3 text-red-500 fill-current" />
+                        </span>
                     </div>
 
                     {/* Language/Location Hint */}
                     <div className="flex items-center gap-2 text-xs font-sans text-white/40">
                         <Globe size={14} />
-                        <span>Español (Latinoamérica)</span>
+                        <span>{
+                            (() => {
+                                const locale = useLocale();
+                                const labels: Record<string, string> = {
+                                    en: 'English (US)',
+                                    es: 'Español (Latinoamérica)',
+                                    fr: 'Français',
+                                    pt: 'Português',
+                                    de: 'Deutsch',
+                                    zh: '中文',
+                                    ja: '日本語',
+                                    ru: 'Русский'
+                                };
+                                return labels[locale] || 'English (US)';
+                            })()
+                        }</span>
                     </div>
                 </div>
             </div>

@@ -375,7 +375,7 @@
         "about": "About Luxor",
         "privacy": "Privacy",
         "terms": "Terms",
-        "copyright": "Built on Solana.",
+        "copyright": "crafted with love",
         "col_biz_title": "Business",
         "col_biz_desc": "Accept LUXOR in your business and expand your payments.",
         "col_tech_title": "Technical Data",
@@ -395,7 +395,9 @@
         "newsletter_title": "Newsletter",
         "newsletter_desc": "Get exclusive updates on the Luxor economy.",
         "newsletter_placeholder": "Your email address",
-        "newsletter_cta": "Subscribe"
+        "newsletter_cta": "Subscribe",
+        "link_autonomous": "Autonomous",
+        "link_glasses": "Intelligent Glasses"
     },
     "Metadata": {
         "title": "Luxor (LXR) | The Intelligence of Value",

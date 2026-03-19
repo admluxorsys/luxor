@@ -166,7 +166,7 @@
         "about": "À propos de Luxor",
         "privacy": "Confidentialité",
         "terms": "Conditions",
-        "copyright": "Construit sur Solana.",
+        "copyright": "créé avec amour",
         "col_biz_title": "Affaires",
         "col_biz_desc": "Acceptez LUXOR dans votre entreprise.",
         "col_tech_title": "Données Techniques",
@@ -186,6 +186,8 @@
         "newsletter_title": "Newsletter",
         "newsletter_desc": "Actualités sur l'économie Luxor.",
         "newsletter_placeholder": "Votre adresse e-mail",
-        "newsletter_cta": "S'abonner"
+        "newsletter_cta": "S'abonner",
+        "link_autonomous": "Autonome",
+        "link_glasses": "Lunettes Intelligentes"
     }
 }

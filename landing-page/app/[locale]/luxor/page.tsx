@@ -86,7 +86,7 @@ export default function LuxorPage() {
                                 <div className="h-10 w-[1px] bg-[#EEEEEE]" />
                                 <div>
                                     <div className="text-[10px] uppercase font-bold text-[#CCCCCC] tracking-widest mb-1">{t('genesis_price')}</div>
-                                    <div className="text-3xl font-medium tracking-tight text-blue-600">$0.0045</div>
+                                    <div className="text-3xl font-medium tracking-tight text-blue-600">$0.00025</div>
                                 </div>
                             </div>
                         </div>

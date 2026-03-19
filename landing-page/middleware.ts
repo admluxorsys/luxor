@@ -5,5 +5,5 @@ export default createMiddleware(routing);
 
 export const config = {
     // Match only internationalized pathnames
-    matcher: ['/', '/(es|en)/:path*']
+    matcher: ['/', '/(en|es|fr|pt|de|zh|ja|ru)/:path*', '/((?!_next|_vercel|.*\\..*).*)']
 };

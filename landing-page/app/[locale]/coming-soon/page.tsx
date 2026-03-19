@@ -40,6 +40,20 @@ export default function ComingSoonPage() {
                         {c('dev_tag')}
                     </p>
                 </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.5, duration: 1 }}
+                    className="mt-12"
+                >
+                    <a 
+                        href="/" 
+                        className="inline-flex items-center gap-2 group px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white/70 hover:text-white transition-all duration-300"
+                    >
+                        <span className="text-xs uppercase tracking-widest font-bold">Return Home</span>
+                    </a>
+                </motion.div>
             </div>
         </div>
     );

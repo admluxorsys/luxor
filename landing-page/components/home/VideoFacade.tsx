@@ -122,61 +122,12 @@ export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: str
             <div ref={containerRef} className="absolute inset-0 w-full h-full group bg-black">
                 <iframe
                     ref={iframeRef}
-                    className="absolute inset-0 w-full h-full pointer-events-none"
-                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1&playsinline=1`}
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&enablejsapi=1&playsinline=1`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                 ></iframe>
-
-                {/* Invisible Click Overlay for Play/Pause */}
-                <div className="absolute inset-0 z-10 cursor-pointer" onClick={togglePlay} />
-
-                {/* Custom Controls Layer */}
-                <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-4 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 flex flex-col justify-end">
-
-                    {/* Progress Bar */}
-                    <div
-                        className="w-full h-1.5 md:h-2 bg-white/20 rounded-full mb-4 cursor-pointer relative overflow-hidden group/bar"
-                        onClick={handleSeek}
-                    >
-                        <div
-                            className="absolute top-0 left-0 h-full bg-blue-500 rounded-full transition-all duration-100 group-hover/bar:bg-blue-400"
-                            style={{ width: `${progress}%` }}
-                        />
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <button
-                                suppressHydrationWarning
-                                onClick={togglePlay}
-                                className="text-white hover:text-blue-400 transition-colors p-1.5 md:p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
-                            >
-                                {videoPlaying ? (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
-                                ) : (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                                )}
-                            </button>
-                            <button
-                                suppressHydrationWarning
-                                onClick={toggleMute}
-                                className="text-white hover:text-blue-400 transition-colors p-1.5 md:p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
-                            >
-                                {isMuted ? <VolumeX className="w-5 h-5 md:w-6 md:h-6" /> : <Volume2 className="w-5 h-5 md:w-6 md:h-6" />}
-                            </button>
-                        </div>
-
-                        <button
-                            suppressHydrationWarning
-                            onClick={toggleFullscreen}
-                            className="text-white hover:text-blue-400 transition-colors p-1.5 md:p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
-                        >
-                            <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" /></svg>
-                        </button>
-                    </div>
-                </div>
             </div>
         );
     }

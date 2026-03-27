@@ -1,8 +1,36 @@
 'use client';
+import { useState, useRef, useEffect } from 'react';
+import { useInView, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
-import { useState } from 'react';
+
+function ShowcaseVideo({ src, className }: { src: string, className: string }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { amount: 0.3 });
+
+    useEffect(() => {
+        if (videoRef.current) {
+            if (isInView) videoRef.current.play().catch(() => {});
+            else videoRef.current.pause();
+        }
+    }, [isInView]);
+
+    return (
+        <div ref={containerRef} className="w-full h-full">
+            <video 
+                ref={videoRef}
+                src={src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className={className}
+            />
+        </div>
+    );
+}
 
 export function ShowcaseSection() {
     const t = useTranslations('HomePage');
@@ -61,13 +89,8 @@ export function ShowcaseSection() {
                         {items.map((item, idx) => (
                             <div key={idx} className="min-w-[85%] md:min-w-[48%] space-y-8 group">
                                 <div className="aspect-video w-full rounded-[40px] bg-black border border-white/10 overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-                                    <video 
+                                    <ShowcaseVideo 
                                         src={item.videoSrc}
-                                        autoPlay={true}
-                                        loop
-                                        muted
-                                        playsInline
-                                        preload="metadata"
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/40 pointer-events-none" />

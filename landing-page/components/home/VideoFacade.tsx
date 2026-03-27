@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Play, Volume2, VolumeX } from 'lucide-react';
 
 export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: string, title: string, autoPlay?: boolean }) {
@@ -11,6 +11,8 @@ export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: str
     const [isMuted, setIsMuted] = useState(true);
     const [progress, setProgress] = useState(0);
     const durationRef = useRef(100); 
+    const isInView = useInView(containerRef, { amount: 0.3 }); // Activa al ver el 30% del video
+    const wasPlayingRef = useRef(autoPlay);
 
     // Custom Cursor State
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -25,6 +27,25 @@ export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: str
         setIsPlaying(autoPlay);
         setVideoPlaying(autoPlay);
     }, [videoId, autoPlay]);
+
+    // Handle visibility changes to pause/resume
+    useEffect(() => {
+        if (!iframeRef.current) return;
+        
+        if (isInView) {
+            if (wasPlayingRef.current) {
+                iframeRef.current.contentWindow?.postMessage(JSON.stringify({ event: 'command', func: 'playVideo' }), '*');
+                setVideoPlaying(true);
+            }
+        } else {
+            // Guardar el estado actual antes de pausar
+            wasPlayingRef.current = videoPlaying;
+            if (videoPlaying) {
+                iframeRef.current.contentWindow?.postMessage(JSON.stringify({ event: 'command', func: 'pauseVideo' }), '*');
+                setVideoPlaying(false);
+            }
+        }
+    }, [isInView]);
 
     // Read time updates directly from iframe
     useEffect(() => {

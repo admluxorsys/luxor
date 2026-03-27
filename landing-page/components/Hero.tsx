@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useLocale } from 'next-intl';
@@ -23,6 +23,28 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
 
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [isMounted, setIsMounted] = useState(false);
+
+    const sectionRef = useRef<HTMLElement>(null);
+    const presaleCardRef = useRef<HTMLAnchorElement>(null);
+    const bgVideoRef = useRef<HTMLVideoElement>(null);
+    const presaleVideoRef = useRef<HTMLVideoElement>(null);
+
+    const isSectionInView = useInView(sectionRef, { amount: 0.1 });
+    const isPresaleInView = useInView(presaleCardRef, { amount: 0.3 });
+
+    useEffect(() => {
+        if (bgVideoRef.current) {
+            if (isSectionInView) bgVideoRef.current.play().catch(() => {});
+            else bgVideoRef.current.pause();
+        }
+    }, [isSectionInView]);
+
+    useEffect(() => {
+        if (presaleVideoRef.current) {
+            if (isPresaleInView) presaleVideoRef.current.play().catch(() => {});
+            else presaleVideoRef.current.pause();
+        }
+    }, [isPresaleInView]);
 
     useEffect(() => {
         setIsMounted(true);
@@ -49,10 +71,11 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
     }, []);
 
     return (
-        <section className="relative w-full flex flex-col md:min-h-[105vh] md:justify-end items-start overflow-hidden bg-black">
+        <section ref={sectionRef} className="relative w-full flex flex-col md:min-h-[105vh] md:justify-end items-start overflow-hidden bg-black">
             {/* 1. Main Background Video Layer */}
             <div className="relative md:absolute md:top-0 md:left-0 w-full h-[60vh] md:h-[75vh] z-0 overflow-hidden">
                 <video
+                    ref={bgVideoRef}
                     autoPlay
                     muted
                     loop
@@ -133,12 +156,14 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     className="w-full max-w-sm lg:max-w-md mt-10 lg:mt-0"
                 >
                     <Link 
+                        ref={presaleCardRef}
                         href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="relative block w-full aspect-video rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:scale-[1.02] hover:shadow-blue-500/30 hover:border-blue-500/50 transition-all duration-300"
                     >
                         <video
+                            ref={presaleVideoRef}
                             autoPlay
                             muted
                             loop

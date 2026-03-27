@@ -63,16 +63,12 @@ export function ShowcaseSection() {
                                 <div className="aspect-video w-full rounded-[40px] bg-black border border-white/10 overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                                     <video 
                                         src={item.videoSrc}
-                                        autoPlay={idx === activeIdx}
+                                        autoPlay={true}
                                         loop
                                         muted
                                         playsInline
                                         preload="metadata"
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                        onMouseEnter={(e) => e.currentTarget.play()}
-                                        onMouseLeave={(e) => {
-                                            if (idx !== activeIdx) e.currentTarget.pause();
-                                        }}
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-black/40 pointer-events-none" />
                                 </div>

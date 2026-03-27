@@ -1,13 +1,14 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play } from 'lucide-react';
+import { Play, Volume2, VolumeX } from 'lucide-react';
 
 export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: string, title: string, autoPlay?: boolean }) {
     const [isPlaying, setIsPlaying] = useState(autoPlay);
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [videoPlaying, setVideoPlaying] = useState(autoPlay);
+    const [isMuted, setIsMuted] = useState(true);
     const [progress, setProgress] = useState(0);
     const durationRef = useRef(100); 
 
@@ -65,6 +66,14 @@ export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: str
         setVideoPlaying(!videoPlaying);
     };
 
+    const toggleMute = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (!iframeRef.current) return;
+        const func = isMuted ? 'unMute' : 'mute';
+        iframeRef.current.contentWindow?.postMessage(JSON.stringify({ event: 'command', func }), '*');
+        setIsMuted(!isMuted);
+    };
+
     const toggleFullscreen = (e: React.MouseEvent) => {
         e.stopPropagation();
         if (!containerRef.current) return;
@@ -93,7 +102,7 @@ export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: str
                 <iframe
                     ref={iframeRef}
                     className="absolute inset-0 w-full h-full pointer-events-none"
-                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0&modestbranding=1&rel=0&enablejsapi=1&playsinline=1`}
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1&playsinline=1`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -117,18 +126,29 @@ export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: str
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <button
-                            onClick={togglePlay}
-                            className="text-white hover:text-blue-400 transition-colors p-1.5 md:p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
-                        >
-                            {videoPlaying ? (
-                                <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
-                            ) : (
-                                <svg className="w-5 h-5 md:w-6 md:h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                            )}
-                        </button>
+                        <div className="flex items-center gap-2">
+                            <button
+                                suppressHydrationWarning
+                                onClick={togglePlay}
+                                className="text-white hover:text-blue-400 transition-colors p-1.5 md:p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+                            >
+                                {videoPlaying ? (
+                                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
+                                ) : (
+                                    <svg className="w-5 h-5 md:w-6 md:h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                )}
+                            </button>
+                            <button
+                                suppressHydrationWarning
+                                onClick={toggleMute}
+                                className="text-white hover:text-blue-400 transition-colors p-1.5 md:p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+                            >
+                                {isMuted ? <VolumeX className="w-5 h-5 md:w-6 md:h-6" /> : <Volume2 className="w-5 h-5 md:w-6 md:h-6" />}
+                            </button>
+                        </div>
 
                         <button
+                            suppressHydrationWarning
                             onClick={toggleFullscreen}
                             className="text-white hover:text-blue-400 transition-colors p-1.5 md:p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm"
                         >

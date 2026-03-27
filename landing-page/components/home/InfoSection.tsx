@@ -50,6 +50,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 // I'll import RefreshCw too
+import Image from 'next/image';
 import { RefreshCw } from 'lucide-react';
 
 export function InfoSection({ 
@@ -147,11 +148,14 @@ export function InfoSection({
                         {/* The Glass Container */}
                         <div className="relative aspect-[16/10] lg:aspect-[4/3] rounded-[40px] overflow-hidden border border-white/20 bg-white/5 backdrop-blur-2xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)]">
                             {customMedia ? customMedia : (
-                                <img 
-                                    src={imageSrc} 
-                                    alt={title} 
-                                    className={`w-full h-full object-cover transition-transform duration-[2000ms] ease-out ${imageClassName}`}
-                                />
+                                imageSrc && (
+                                    <Image 
+                                        src={imageSrc} 
+                                        alt={title} 
+                                        fill
+                                        className={`object-cover transition-transform duration-[2000ms] ease-out ${imageClassName}`}
+                                    />
+                                )
                             )}
                             {/* Inner border highlight */}
                             <div className="absolute inset-0 rounded-[40px] border border-white/10 pointer-events-none" />

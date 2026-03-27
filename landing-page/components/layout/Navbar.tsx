@@ -12,6 +12,7 @@ import {
     FileText, Layers
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import LanguageSwitcher from '../features/LanguageSwitcher';
 import dynamic from 'next/dynamic';
 
@@ -121,10 +122,12 @@ export default function Navbar() {
                         {/* Logo */}
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center gap-2 group">
-                                <img
+                                <Image
                                     src="/assets/icons/esfera.png"
                                     alt="Luxor Logo"
-                                    className="w-11 h-11 object-cover rounded-full transition-all duration-300 transform group-hover:scale-105"
+                                    width={44}
+                                    height={44}
+                                    className="object-cover rounded-full transition-all duration-300 transform group-hover:scale-105"
                                 />
                                 <span className="text-xl font-sans text-white tracking-tight font-medium">
                                     Luxor

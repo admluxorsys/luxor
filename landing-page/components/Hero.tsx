@@ -58,6 +58,8 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     loop
                     playsInline
                     className="w-full h-full object-cover grayscale-[0.2] brightness-75 scale-110 md:scale-100"
+                    preload="metadata"
+                    poster="/images/globe.png"
                     src={bgVideoUrl}
                 />
                 {/* Subtle fade transition to black */}
@@ -142,6 +144,8 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                             muted
                             loop
                             playsInline
+                            preload="metadata"
+                            poster="/images/coin.jpg"
                             className="absolute inset-0 w-full h-full object-cover"
                             src={presaleVideoUrl}
                         />

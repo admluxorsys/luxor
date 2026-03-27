@@ -16,50 +16,9 @@ export function PingPongVideo({
         const video = videoRef.current;
         if (!video) return;
 
-        let frameId: number;
-        let isReversing = false;
-        let lastTime = performance.now();
-
-        const loop = (time: number) => {
-            if (!video.duration) {
-                lastTime = time;
-                frameId = requestAnimationFrame(loop);
-                return;
-            }
-
-            const dt = (time - lastTime) / 1000; // Delta time en segundos
-            lastTime = time;
-
-            // Si llegamos al final, preparamos la reversa
-            if (!isReversing && video.currentTime >= video.duration - 0.05) {
-                isReversing = true;
-                video.pause();
-            } 
-            // Si llegamos al inicio de nuevo (en reversa), volvemos a ir hacia adelante
-            else if (isReversing && video.currentTime <= 0.05) {
-                isReversing = false;
-                video.play().catch(() => {});
-            }
-
-            // Si está yendo hacia atrás, restamos constantemente el delta time al video
-            if (isReversing) {
-                video.currentTime = Math.max(0, video.currentTime - dt * 1.0); // Ajusta la velocidad de retroceso si gustas
-            }
-
-            frameId = requestAnimationFrame(loop);
-        };
-
-        frameId = requestAnimationFrame((time) => {
-            lastTime = time;
-            loop(time);
-        });
-
-        // Fuerza el autoplay seguro
+        // Standard loop is much more performant than manual reverse playback
+        video.loop = true;
         video.play().catch(() => {});
-
-        return () => {
-            cancelAnimationFrame(frameId);
-        };
     }, []);
 
     return (

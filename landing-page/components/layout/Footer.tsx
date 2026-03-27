@@ -52,6 +52,7 @@ export default function Footer() {
                 { name: t('roadmap'), href: '#' },
                 { name: "Whitepaper (Docs)", href: 'https://github.com/admluxorsys/luxor/blob/main/Whitepaper.md', target: '_blank' },
                 { name: "Press & Media", href: '#' },
+                { name: "Education", href: '/education' },
                 { name: "Our Partners", href: '#' },
             ]
         },

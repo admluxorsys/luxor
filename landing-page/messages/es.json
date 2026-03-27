@@ -240,6 +240,13 @@
             "founder": "Participación del Equipo"
         }
     },
+    "IntegrationsPage": {
+        "eyebrow": "Expansión del Ecosistema",
+        "title": "Integraciones",
+        "subtitle": "Próximamente.",
+        "description": "Expandiendo el horizonte de Luxor. Nuestras integraciones directas con los principales protocolos y soluciones automatizadas se encuentran en las etapas finales de verificación.",
+        "cta": "Volver al Núcleo"
+    },
     "TeamPage": {
         "title": "Transparencia & Equipo",
         "subtitle": "Construido sobre la confianza, verificado por código. Priorizamos la seguridad y el cumplimiento legal.",

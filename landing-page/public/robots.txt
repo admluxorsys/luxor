@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Host
+Host: https://byluxor.com
+
+# Sitemaps
+Sitemap: https://byluxor.com/sitemap.xml

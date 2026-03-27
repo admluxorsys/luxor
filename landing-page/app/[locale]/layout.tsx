@@ -36,9 +36,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-    }
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
+
+import Script from 'next/script';
+import FirebaseAnalytics from '../../components/FirebaseAnalytics';
 
 export default async function LocaleLayout({
   children,
@@ -58,9 +72,27 @@ export default async function LocaleLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
 
+  const GA_ID = 'G-R7LJFYLE4R';
+
   return (
     <html lang={locale} className="dark">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+      </head>
       <body className={`${montserrat.variable} ${outfit.variable} ${montserrat.className} bg-black text-white min-h-screen flex flex-col font-sans`}>
+        <FirebaseAnalytics />
         <WalletContextProvider>
           <NextIntlClientProvider messages={messages}>
             <Navbar />

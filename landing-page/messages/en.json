@@ -240,6 +240,13 @@
             "founder": "Founder Fee Share"
         }
     },
+    "IntegrationsPage": {
+        "eyebrow": "Ecosystem Expansion",
+        "title": "Integrations",
+        "subtitle": "Coming Soon.",
+        "description": "Expanding the Luxor horizon. Our direct integrations with major protocols and automated solutions are in the final stages of verification.",
+        "cta": "Back to Core"
+    },
     "TeamPage": {
         "title": "Transparency & Team",
         "subtitle": "Built on trust, verified by code. We prioritize security and legal compliance.",

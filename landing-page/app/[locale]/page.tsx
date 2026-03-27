@@ -17,8 +17,24 @@ import { ReviewsSection } from '@/components/home/ReviewsSection';
 export default function HomePage() {
   const t = useTranslations('HomePage');
 
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "By Luxor",
+    "url": "https://byluxor.com",
+    "logo": "https://byluxor.com/logo.png",
+    "sameAs": [
+      "https://x.com/byluxor",
+      "https://github.com/byluxor"
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-black overflow-hidden font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <Hero
         eyebrow={t('eyebrow')}
         title={t('title')}

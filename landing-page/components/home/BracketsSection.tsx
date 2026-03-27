@@ -336,7 +336,9 @@ export function BracketsSection() {
                                 {t(`brackets.${cat.key}.subtitle`)}
                             </p>
                             <div className="pt-4">
-                                <button className={`${cat.style} px-7 py-2.5 rounded-full text-[11px] font-medium transition-all duration-300 hover:scale-105 active:scale-95 font-sans pointer-events-auto`}>
+                                <button 
+                                    suppressHydrationWarning
+                                    className={`${cat.style} px-7 py-2.5 rounded-full text-[11px] font-medium transition-all duration-300 hover:scale-105 active:scale-95 font-sans pointer-events-auto`}>
                                     {t(`brackets.${cat.key}.btn`)}
                                 </button>
                             </div>

@@ -29,6 +29,7 @@ export function PlaylistSection({ items }: { items: any[] }) {
             {items.length > 1 && (
                 <div className="flex items-center gap-6 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
                     <button 
+                        suppressHydrationWarning
                         onClick={prevVideo}
                         className="text-white/60 hover:text-white transition-colors p-2"
                         aria-label="Previous video"
@@ -36,6 +37,7 @@ export function PlaylistSection({ items }: { items: any[] }) {
                         <ChevronLeft size={28} strokeWidth={2.5} />
                     </button>
                     <button 
+                        suppressHydrationWarning
                         onClick={nextVideo}
                         className="text-white/60 hover:text-white transition-colors p-2"
                         aria-label="Next video"

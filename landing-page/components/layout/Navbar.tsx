@@ -149,9 +149,11 @@ export default function Navbar() {
                                         className="relative"
                                         onMouseEnter={() => handleMouseEnter(item.id)}
                                     >
-                                        <button className={`flex items-center gap-1.5 text-[13px] font-sans px-3 py-2 rounded-full transition-all ${activeMega === item.id ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white hover:bg-white/5'}`}>
-                                            {item.label}
-                                        </button>
+                                         <button 
+                                            suppressHydrationWarning
+                                            className={`flex items-center gap-1.5 text-[13px] font-sans px-3 py-2 rounded-full transition-all ${activeMega === item.id ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white hover:bg-white/5'}`}>
+                                             {item.label}
+                                         </button>
                                     </div>
                                 ))}
                             </div>
@@ -232,12 +234,34 @@ export default function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
-                        <button
+                        <motion.button 
+                            suppressHydrationWarning
+                            whileTap={{ scale: 0.9 }}
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="text-gray-300 hover:text-white p-2"
+                            className="relative z-50 p-3 text-white transition-all border border-white/10 rounded-full bg-white/5 backdrop-blur-xl"
                         >
-                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
+                            <AnimatePresence mode="wait">
+                                {mobileMenuOpen ? (
+                                    <motion.div
+                                        key="close"
+                                        initial={{ opacity: 0, rotate: -90 }}
+                                        animate={{ opacity: 1, rotate: 0 }}
+                                        exit={{ opacity: 0, rotate: 90 }}
+                                    >
+                                        <X size={24} />
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="menu"
+                                        initial={{ opacity: 0, rotate: 90 }}
+                                        animate={{ opacity: 1, rotate: 0 }}
+                                        exit={{ opacity: 0, rotate: -90 }}
+                                    >
+                                        <Menu size={24} />
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.button>
                     </div>
                 </div>
             </div>
@@ -279,7 +303,8 @@ export default function Navbar() {
                                 <div className="col-span-3 grid grid-cols-2 gap-x-12 gap-y-6">
                                     {megaMenus[activeMega]?.map((item, idx) => (
                                         item.onClick ? (
-                                            <button
+                                             <button
+                                                suppressHydrationWarning
                                                 key={idx}
                                                 onClick={item.onClick}
                                                 className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all group text-left"
@@ -317,86 +342,202 @@ export default function Navbar() {
                 )}
             </AnimatePresence>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Full Screen Overlay */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        className="md:hidden fixed inset-0 top-[64px] bg-black z-40 overflow-y-auto px-6 py-8"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-40 overflow-y-auto px-6 pt-32 pb-12 flex flex-col"
                     >
-                        <div className="flex flex-col gap-8">
-                            {/* Simple Mobile Links */}
-                            <div className="flex flex-col gap-8 pb-10">
-                                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-bold text-white tracking-tight">{t('home')}</Link>
-                                
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex items-center justify-between bg-white/5 border border-white/10 rounded-2xl p-4">
-                                        <div className="flex items-center gap-3">
-                                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                             <span className="text-xs text-white/40 font-bold uppercase tracking-widest">LXR Price</span>
-                                        </div>
-                                        <span className="text-lg font-bold text-white font-sans">$0.00025</span>
+                        {/* Background Decorative Element */}
+                        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                        
+                        <div className="flex flex-col gap-10">
+                            {/* Stats Card */}
+                            <motion.div 
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="bg-white/5 border border-white/10 rounded-3xl p-6 space-y-4"
+                            >
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                                        <span className="text-[10px] text-white/40 font-bold uppercase tracking-[0.2em]">LXR Live Stats</span>
+                                    </div>
+                                    <span className="text-xl font-bold text-white">$0.00025</span>
+                                </div>
+                                <div className="h-px bg-white/5 w-full" />
+                                <div className="grid grid-cols-2 gap-4 text-center">
+                                    <div>
+                                        <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">Market Cap</p>
+                                        <p className="text-white font-medium">$506K</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">Liquidity</p>
+                                        <p className="text-white font-medium">$120K</p>
                                     </div>
                                 </div>
+                            </motion.div>
 
-                                <div className="grid grid-cols-2 gap-3">
-                                    <a href="https://t.me/+HqmOhqYjNlJlYjBh" target="_blank" className="flex items-center justify-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-xl py-3 text-blue-400 text-sm font-bold">
-                                        <Send size={16} /> Telegram
-                                    </a>
-                                    <a href="https://x.com/luxor_lxr" target="_blank" className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 rounded-xl py-3 text-white text-sm font-bold">
-                                        X.com
-                                    </a>
+                            {/* Main Actions */}
+                            <div className="flex flex-col gap-4">
+                                <motion.a
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.2 }}
+                                    href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full bg-blue-600 text-white rounded-full h-16 flex items-center justify-center font-bold text-lg active:scale-95 transition-all shadow-2xl shadow-blue-600/20"
+                                >
+                                    {t('buy')} LXR
+                                </motion.a>
+                                <motion.a
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.3 }}
+                                    href="https://dial.to/?action=solana-action:https://www.byluxor.xyz/api/actions/donate"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full bg-white/5 border border-white/10 text-white rounded-full h-16 flex items-center justify-center font-bold text-lg active:scale-95 transition-all"
+                                >
+                                    Support Luxor (Donate)
+                                </motion.a>
+                            </div>
+
+                            {/* Socials & Region */}
+                            <div className="flex flex-col gap-8 pt-4 border-t border-white/5">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-6">
+                                        <motion.a 
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            href="https://x.com/luxor_lxr" 
+                                            target="_blank" 
+                                            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
+                                        >
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                        </motion.a>
+                                        <motion.a 
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            href="https://discord.gg/pFgcmV45yn" 
+                                            target="_blank" 
+                                            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
+                                        >
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.862-1.295 1.196-1.995a.076.076 0 0 0-.041-.105 13.11 13.11 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.420 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                                        </motion.a>
+                                        <motion.a 
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            href="https://t.me/+HqmOhqYjNlJlYjBh" 
+                                            target="_blank" 
+                                            className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
+                                        >
+                                            <Send size={20} />
+                                        </motion.a>
+                                    </div>
+                                    <div className="flex flex-col items-end gap-1 px-2">
+                                        <span className="text-[9px] text-white/20 uppercase font-bold tracking-widest mr-3">Region</span>
+                                        <LanguageSwitcher />
+                                    </div>
                                 </div>
+                            </div>
 
-                                <div className="h-[1px] bg-white/10 my-2" />
-
+                            {/* Main Links - Accordion Style */}
+                            <div className="flex flex-col gap-6 pt-10 border-t border-white/5">
                                 {[
-                                    { id: 'project', label: t('project') },
-                                    { id: 'ecosystem', label: t('ecosystem') },
-                                    { id: 'tokenomics', label: t('tokenomics') },
-                                    { id: 'utility', label: t('utility') },
-                                    { id: 'business', label: t('business') },
-                                    { id: 'security', label: t('security') },
-                                    { id: 'onchain', label: t('onchain') },
-                                ].map((cat) => (
-                                    <React.Fragment key={cat.id}>
-                                        <h3 className="text-white/30 text-[11px] uppercase font-bold tracking-widest mt-4 pl-1">{cat.label}</h3>
-                                        <div className="grid grid-cols-2 gap-3 mt-3">
-                                            {megaMenus[cat.id].slice(0, 4).map((item, idx) => (
-                                                <Link
-                                                    key={idx}
-                                                    href={item.href as any}
-                                                    onClick={() => setMobileMenuOpen(false)}
-                                                    className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 hover:text-white font-medium"
-                                                >
-                                                    <span className="text-[12px] font-bold text-white">{item.title}</span>
-                                                    <span className="text-[9px] text-white/30 truncate">{item.desc}</span>
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </React.Fragment>
-                                ))}
-                            </div>
+                                    { label: t('home'), href: '/', id: 'home' },
+                                    { label: t('project'), href: '#', id: 'project' },
+                                    { label: t('ecosystem'), href: '#', id: 'ecosystem' },
+                                    { label: t('tokenomics'), href: '#', id: 'tokenomics' },
+                                    { label: t('utility'), href: '#', id: 'utility' },
+                                    { label: t('business'), href: '#', id: 'business' },
+                                    { label: t('security'), href: '#', id: 'security' },
+                                    { label: t('onchain'), href: '#', id: 'onchain' },
+                                ].map((link, i) => {
+                                    const isExpanded = activeMega === link.id;
+                                    const subItems = megaMenus[link.id as keyof typeof megaMenus];
 
-                            <div className="flex flex-col gap-4 mt-4 sticky bottom-0 bg-black pt-4 border-t border-white/10">
-                                <div className="flex justify-between items-center px-2">
-                                    <span className="text-xs text-white/40 font-bold uppercase tracking-widest">Settings</span>
-                                    <LanguageSwitcher />
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <a
-                                        href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
-                                        className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl h-14 flex items-center justify-center font-bold text-base shadow-xl shadow-blue-600/20 transition-all"
-                                    >
-                                        {t('buy')} LXR
-                                    </a>
-                                    <div className="h-14 overflow-hidden rounded-2xl">
-                                         <WalletMultiButton>Connect</WalletMultiButton>
-                                    </div>
-                                </div>
+                                    return (
+                                        <motion.div
+                                            key={link.id}
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.4 + i * 0.05 }}
+                                            className="flex flex-col"
+                                        >
+                                            <button 
+                                                onClick={() => {
+                                                    if (link.id === 'home') {
+                                                        setMobileMenuOpen(false);
+                                                        return;
+                                                    }
+                                                    setActiveMega(isExpanded ? null : link.id);
+                                                }}
+                                                className="flex items-center justify-between text-4xl font-normal text-white hover:text-blue-500 transition-colors tracking-tighter py-2"
+                                            >
+                                                <span>{link.label}</span>
+                                                {subItems && (
+                                                    <motion.span 
+                                                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                                                        className="text-white/20"
+                                                    >
+                                                        <ChevronDown size={24} />
+                                                    </motion.span>
+                                                )}
+                                            </button>
+
+                                            {/* Submenu Content */}
+                                            <AnimatePresence>
+                                                {isExpanded && subItems && (
+                                                    <motion.div
+                                                        initial={{ height: 0, opacity: 0 }}
+                                                        animate={{ height: 'auto', opacity: 1 }}
+                                                        exit={{ height: 0, opacity: 0 }}
+                                                        className="overflow-hidden flex flex-col gap-4 pl-4 border-l border-white/5 mt-2"
+                                                    >
+                                                        {subItems.map((sub, sIdx) => (
+                                                            sub.onClick ? (
+                                                                <button
+                                                                    key={sIdx}
+                                                                    onClick={() => {
+                                                                        sub.onClick?.();
+                                                                        setMobileMenuOpen(false);
+                                                                    }}
+                                                                    className="text-left text-lg text-white/50 hover:text-white transition-colors py-1 flex items-center gap-3"
+                                                                >
+                                                                    <sub.icon size={16} className="text-blue-500" />
+                                                                    {sub.title}
+                                                                </button>
+                                                            ) : (
+                                                                <Link
+                                                                    key={sIdx}
+                                                                    href={sub.href as any}
+                                                                    onClick={() => setMobileMenuOpen(false)}
+                                                                    className="text-lg text-white/50 hover:text-white transition-colors py-1 flex items-center gap-3"
+                                                                >
+                                                                    <sub.icon size={16} className="text-blue-500" />
+                                                                    {sub.title}
+                                                                </Link>
+                                                            )
+                                                        ))}
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
+                        </div>
+
+                        {/* Footer in Menu */}
+                        <div className="mt-auto pt-10 text-center">
+                            <p className="text-[10px] text-white/20 uppercase tracking-[0.3em] font-medium">© 2026 Luxor Economy</p>
                         </div>
                     </motion.div>
                 )}

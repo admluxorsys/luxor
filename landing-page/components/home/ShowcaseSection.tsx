@@ -90,6 +90,7 @@ export function ShowcaseSection() {
                     <div className="flex justify-end mt-12 pr-4 md:pr-12">
                          <div className="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full p-1.5 gap-2">
                             <button 
+                                suppressHydrationWarning
                                 onClick={prevSlide}
                                 className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/70 hover:text-white"
                                 aria-label="Previous slide"
@@ -98,6 +99,7 @@ export function ShowcaseSection() {
                             </button>
                             <div className="w-px h-4 bg-white/10" />
                             <button 
+                                suppressHydrationWarning
                                 onClick={nextSlide}
                                 className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/70 hover:text-white"
                                 aria-label="Next slide"

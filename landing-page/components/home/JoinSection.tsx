@@ -25,6 +25,7 @@ export function JoinSection() {
                     
                     <div className="pt-10">
                         <motion.button
+                            suppressHydrationWarning
                             onClick={() => window.open("https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth", "_blank")}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}

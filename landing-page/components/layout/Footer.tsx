@@ -50,67 +50,92 @@ export default function Footer() {
             links: [
                 { name: t('team'), href: '/team' },
                 { name: t('roadmap'), href: '#' },
-                { name: t('docs'), href: '#' },
-                { name: t('mega.eco_title_4'), href: '#' },
+                { name: "Whitepaper (Docs)", href: 'https://github.com/admluxorsys/luxor/blob/main/Whitepaper.md', target: '_blank' },
+                { name: "Press & Media", href: '#' },
+                { name: "Our Partners", href: '#' },
             ]
         },
         {
             title: t('ecosystem'),
             links: [
-                { name: t('mega.eco_title_1'), href: '#' },
-                { name: t('mega.eco_title_2'), href: '#' },
-                { name: t('mega.eco_title_3'), href: '#' },
-                { name: "Github", href: 'https://github.com' },
+                { name: tf('link_integra'), href: '/luxor-pay' },
+                { name: "Roosevelt Intelligence (AI)", href: 'https://www.byroosevelt.com/', target: '_blank' },
+                { name: "Intelligent Glasses", href: '/intelligent-glasses' },
+                { name: "Excelsior ($XLS)", href: '/excelsior' },
+                { name: "Lux Origin ($LUX)", href: '/lux-origin' },
+                { name: "Stablecoin ($USDX)", href: '/stablecoin' },
             ]
         },
         {
             title: t('tokenomics'),
             links: [
-                { name: t('mega.tok_title_1'), href: '#' },
-                { name: tf('link_holders'), href: '#' },
-                { name: t('mega.tok_title_3'), href: '#' },
-                { name: tf('link_verified'), href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth' },
+                { name: "Total Supply", href: '#' },
+                { name: "Circulating Supply", href: '#' },
+                { name: "Network Contract Address", href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', target: '_blank' },
+                { name: "Public Sale / IDO", href: '#' },
+                { name: "Liquidity Pool", href: '#' },
+                { name: "TGE (Token Generation Event)", href: '#' },
+                { name: "Transaction Fees", href: '#' },
+                { name: "Buy-back & Burn", href: '#' },
             ]
         },
         {
             title: t('utility'),
             links: [
-                { name: t('mega.util_title_1'), href: '#' },
-                { name: t('mega.util_title_2'), href: '#' },
-                { name: t('mega.util_title_3'), href: '#' },
+                { name: "Staking & Rewards", href: '/coming-soon' },
+                { name: "AI Premium Access", href: '/coming-soon' },
+                { name: "Hardware Discounts", href: '/coming-soon' },
+                { name: "Governance (DAO)", href: '/coming-soon' },
+                { name: "Cashback for Usage", href: '/coming-soon' },
+                { name: "Suggestions", href: 'mailto:services@byluxor.com' },
             ]
         },
         {
-            title: tf('col_biz_title'),
+            title: "Security & Legal",
             links: [
-                { name: tf('link_integra'), href: '/coming-soon' },
-                { name: tf('link_autonomous'), href: '/coming-soon' },
-                { name: tf('link_glasses'), href: '/coming-soon' },
+                { name: "Technical Audit", href: '#' },
+                { name: "Security Certificates", href: '#' },
+                { name: "Verified Contract", href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', target: '_blank' },
+                { name: "Bug Bounty Program", href: '#' },
+                { name: "Transparency of Funds", href: '#' },
+                { name: "Privacy Policy", href: '/coming-soon' },
+                { name: "Terms of Use", href: '/coming-soon' },
+                { name: "Disclaimer", href: '/coming-soon' },
+                { name: "AML / KYC Policy", href: '/coming-soon' },
             ]
         },
         {
-            title: tf('col_sec_title'),
+            title: "On-Chain Links",
             links: [
-                { name: t('mega.tok_title_2'), href: '#' },
-                { name: tf('link_certificates'), href: '#' },
-                { name: tf('link_verified'), href: '#' },
+                { name: "Solscan (Explorer)", href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', target: '_blank' },
+                { name: "DexScreener", href: 'https://dexscreener.com/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', target: '_blank' },
+                { name: "Raydium (Swap)", href: 'https://raydium.io/swap/?inputMint=sol&outputMint=7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', target: '_blank' },
+                { name: "Phantom Wallet", href: 'https://phantom.app/', target: '_blank' },
+                { name: "Dial.to (Blinks)", href: 'https://dial.to/?action=solana-action:https://jup.ag/swap/SOL-7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', target: '_blank' },
+                { name: "Jupiter", href: 'https://jup.ag/', target: '_blank' },
+                { name: "Meteora", href: 'https://www.meteora.ag/', target: '_blank' },
+                { name: "Events", href: '/coming-soon' },
+                { name: "Blog", href: '/coming-soon' },
             ]
         },
         {
-            title: tf('col_onchain_title'),
+            title: "Documentation",
             links: [
-                { name: "Phantom", href: 'https://phantom.app/' },
-                { name: "Raydium (Swap)", href: 'https://raydium.io/swap/?inputMint=sol&outputMint=7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth' },
-                { name: "DexScreener", href: 'https://dexscreener.com/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth' },
-                { name: "Streamflow", href: 'https://app.streamflow.finance/' },
-                { name: "Solscan", href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth' },
-                { name: "Dial.to (Blinks)", href: 'https://dial.to/?action=solana-action:https://jup.ag/swap/SOL-7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth' },
-                { name: "Orb (Holders)", href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth/token-holders?page=1&pageSize=10' },
+                { name: "Whitepaper", href: 'https://github.com/admluxorsys/luxor/blob/main/Whitepaper.md', target: '_blank' },
+                { name: "API & SDK", href: '/coming-soon' },
+                { name: "Integration Guides", href: '/coming-soon' },
+                { name: "Legal Files", href: '#' },
+                { name: "Github Repository", href: 'https://github.com/admluxorsys/luxor', target: '_blank' },
             ]
         },
         {
-            title: "Contact",
+            title: "Customer Support",
             links: [
+                { name: "Technical Support", href: 'mailto:services@byluxor.com' },
+                { name: "Help Center (FAQ)", href: '/coming-soon' },
+                { name: "Careers / Vacancies", href: '/coming-soon' },
+                { name: "Commercial Contact", href: 'mailto:services@byluxor.com' },
+                { name: "Report an Error", href: 'mailto:services@byluxor.com' },
                 { name: 'services@byluxor.com', href: 'mailto:services@byluxor.com' },
                 { name: '+13859779375', href: 'tel:+13859779375' },
                 { name: '170 S W Temple St, Salt Lake City, UT 84101', href: 'https://maps.google.com/?q=170+S+W+Temple+St,+Salt+Lake+City,+UT+84101', target: '_blank' },
@@ -151,11 +176,14 @@ export default function Footer() {
                         </div>
                         <div className="flex gap-2 w-full">
                             <input
+                                suppressHydrationWarning
                                 type="email"
                                 placeholder={tf('newsletter_placeholder')}
                                 className="bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs focus:outline-none focus:border-white/20 flex-grow transition-colors placeholder:text-white/20"
                             />
-                            <button className="bg-white text-black rounded-full px-7 py-2.5 text-xs font-bold hover:bg-white/90 active:scale-95 transition-all shrink-0">
+                            <button 
+                                suppressHydrationWarning
+                                className="bg-white text-black rounded-full px-7 py-2.5 text-xs font-bold hover:bg-white/90 active:scale-95 transition-all shrink-0">
                                 {tf('newsletter_cta')}
                             </button>
                         </div>
@@ -167,9 +195,9 @@ export default function Footer() {
                     {/* Left Side: Slogan */}
                     <div className="lg:w-1/4">
                         <h2 className="text-2xl md:text-3xl font-sans font-medium tracking-tight leading-tight sticky top-24 text-white">
-                            {tf('slogan_1')} <br />
-                            {tf('slogan_2')} <br />
-                            {tf('slogan_3')}
+                            Making <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Luxor</span> <br />
+                            helpful for <br />
+                            everyone
                         </h2>
                     </div>
 
@@ -183,16 +211,16 @@ export default function Footer() {
                                     </div>
                                     <ul className="flex flex-col gap-4">
                                         {section.links.map((link, lIdx) => {
-                                            const isHighlight = link.name === tf('link_integra');
+                                            const isHighlight = link.name === 'Roosevelt Intelligence (AI)' || link.name === 'Roosevelt AI' || link.name === tf('link_autonomous');
                                             return (
                                                 <li key={lIdx}>
                                                     <Link
                                                         href={link.href}
                                                         target={(link as any).target}
                                                         className={`${isHighlight
-                                                            ? "text-[#2563EB] hover:text-[#3B82F6] font-bold"
+                                                            ? "bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold"
                                                             : "text-white/60 hover:text-white"
-                                                            } text-sm font-sans transition-colors flex items-center gap-2 group`}
+                                                            } text-sm font-sans transition-colors flex items-center gap-2 group decoration-transparent`}
                                                     >
                                                         {link.name}
                                                     </Link>

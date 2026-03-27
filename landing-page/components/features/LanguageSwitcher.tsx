@@ -48,7 +48,8 @@ export default function LanguageSwitcher() {
 
     return (
         <div className="relative inline-block text-left z-50" ref={dropdownRef}>
-            <button
+             <button
+                suppressHydrationWarning
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 disabled={isPending}
@@ -70,7 +71,8 @@ export default function LanguageSwitcher() {
                     >
                         <div className="py-1">
                             {languages.map((lang) => (
-                                <button
+                                 <button
+                                    suppressHydrationWarning
                                     key={lang.code}
                                     onClick={() => handleSelect(lang.code)}
                                     className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${locale === lang.code

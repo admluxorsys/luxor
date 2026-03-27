@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useLocale } from 'next-intl';
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, Fragment } from 'react';
 
 interface HeroProps {
     eyebrow: string;
@@ -85,8 +85,13 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     </motion.span>
 
                     {/* Main Title - Scaled for impact on mobile */}
-                    <h1 className="text-4xl md:text-4xl lg:text-[42px] font-medium text-white mb-6 md:mb-5 tracking-tight leading-[1.1] font-sans whitespace-pre-line">
-                        {title}
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 md:mb-5 tracking-tight leading-[1.05] font-sans whitespace-pre-line group-hover:scale-[1.01] transition-transform duration-700">
+                         {title.split('Luxor').map((part, i, arr) => (
+                            <Fragment key={i}>
+                                {part}
+                                {i !== arr.length - 1 && <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Luxor</span>}
+                            </Fragment>
+                        ))}
                     </h1>
 
                     {/* Subtitle - More compact */}
@@ -98,6 +103,8 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
                         <Link
                             href={ctaLink}
+                            suppressHydrationWarning
+                            {...(ctaLink.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                             className="group relative px-8 py-4 md:px-7 md:py-2.5 bg-white text-black hover:bg-blue-600 hover:text-white rounded-full font-bold text-sm md:text-[12px] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden shadow-2xl shadow-white/5"
                         >
                             <span className="relative z-10">{ctaText}</span>
@@ -109,6 +116,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                             href="https://dial.to/?action=solana-action:https://www.byluxor.xyz/api/actions/donate"
                             target="_blank"
                             rel="noopener noreferrer"
+                            suppressHydrationWarning
                             className="px-8 py-4 md:px-7 md:py-2.5 border border-white/20 hover:border-white/40 text-blue-400 rounded-full font-bold text-sm md:text-[12px] transition-all backdrop-blur-md flex items-center justify-center gap-2"
                         >
                             Support Luxor
@@ -124,8 +132,10 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     className="w-full max-w-sm lg:max-w-md mt-10 lg:mt-0"
                 >
                     <Link 
-                        href="#" 
-                        className="relative block w-full aspect-video rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:scale-[1.02] hover:shadow-white/30 hover:border-white/50 transition-all duration-300"
+                        href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative block w-full aspect-video rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:scale-[1.02] hover:shadow-blue-500/30 hover:border-blue-500/50 transition-all duration-300"
                     >
                         <video
                             autoPlay
@@ -137,35 +147,39 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                         />
                         
                         {/* Overlay Filter for legibility */}
-                        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] group-hover:bg-black/50 transition-colors" />
+                        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] group-hover:bg-blue-900/40 group-hover:backdrop-blur-[2px] transition-all duration-500" />
 
                         {/* Countdown Information */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-20">
                             {/* Card Status Badge */}
-                            <div className="px-4 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md mb-4 inline-flex items-center gap-2 group-hover:border-white/30 transition-colors">
-                               <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
-                               <span className="text-[10px] uppercase tracking-widest font-bold text-blue-100">{badgeText}</span>
-                            </div>
+                             <motion.div 
+                                animate={{ scale: [1, 1.05, 1] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                className="px-4 py-1.5 rounded-full border border-white/20 bg-blue-900/30 backdrop-blur-md mb-4 inline-flex items-center gap-2 group-hover:border-blue-400 transition-colors"
+                             >
+                                <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
+                                <span className="text-[10px] uppercase tracking-widest font-bold text-blue-100">{badgeText}</span>
+                             </motion.div>
                             
                             {isMounted ? (
-                                <div className="flex items-center gap-3 lg:gap-4 group-hover:drop-shadow-2xl transition-all">
+                                <div className="flex items-center gap-3 lg:gap-4 group-hover:drop-shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all">
                                     <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.days}</span>
+                                        <span suppressHydrationWarning className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.days}</span>
                                         <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Days</span>
                                     </div>
                                     <div className="text-xl lg:text-3xl mb-5 font-light text-white/30 animate-pulse">:</div>
                                     <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.hours}</span>
+                                        <span suppressHydrationWarning className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.hours}</span>
                                         <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Hours</span>
                                     </div>
                                     <div className="text-xl lg:text-3xl mb-5 font-light text-white/30 animate-pulse">:</div>
                                     <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.minutes}</span>
+                                        <span suppressHydrationWarning className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.minutes}</span>
                                         <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Mins</span>
                                     </div>
                                     <div className="text-xl lg:text-3xl mb-5 font-light text-white/30 animate-pulse">:</div>
                                     <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.seconds}</span>
+                                        <span suppressHydrationWarning className="text-3xl lg:text-5xl font-bold font-sans tracking-tighter drop-shadow-lg">{timeLeft.seconds}</span>
                                         <span className="text-[8px] lg:text-[10px] uppercase tracking-widest text-white/50 mt-1 font-semibold">Secs</span>
                                     </div>
                                 </div>

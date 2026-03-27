@@ -133,7 +133,7 @@ export function VideoFacade({ videoId, title, autoPlay = false }: { videoId: str
                 <div className="absolute inset-0 z-10 cursor-pointer" onClick={togglePlay} />
 
                 {/* Custom Controls Layer */}
-                <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-4 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20 flex flex-col justify-end">
+                <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-4 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 flex flex-col justify-end">
 
                     {/* Progress Bar */}
                     <div

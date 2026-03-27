@@ -132,6 +132,21 @@
                     "videoId": "IgifEgm1-e0"
                 },
                 {
+                    "name": "Perspectiva Económica",
+                    "desc": "Análisis profundo sobre las variables macroeconómicas y el impacto tecnológico global.",
+                    "videoId": "jJBvQdfz1Z0"
+                },
+                {
+                    "name": "Mark Zuckerberg",
+                    "desc": "Su enfoque en la conectividad global nos muestra que el mundo es una sola red.",
+                    "videoId": "gF12Xn3C-0c"
+                },
+                {
+                    "name": "Mercados & Estrategia",
+                    "desc": "Visión a futuro sobre los movimientos de capital inteligente.",
+                    "videoId": "_L_OOxgXCTk"
+                },
+                {
                     "name": "Jensen Huang",
                     "desc": "Trata de democratizar la IA para que cualquier humano sea tan productivo como una empresa entera.",
                     "videoId": "hoDYYCyxMuE"
@@ -140,11 +155,6 @@
                     "name": "Alejandro Salomón",
                     "desc": "Emprendedor visionario analizando el futuro de los activos digitales y la innovación tecnológica.",
                     "videoId": "ZWII5oAOt1Y"
-                },
-                {
-                    "name": "Mark Zuckerberg",
-                    "desc": "Su enfoque en la conectividad global nos muestra que el mundo es una sola red.",
-                    "videoId": "gF12Xn3C-0c"
                 }
             ]
         },
